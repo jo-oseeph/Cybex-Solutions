@@ -1,0 +1,854 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About & Services - CyberShield</title>
+    <link rel="stylesheet" href="airs.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #00f7ff;
+            --secondary-color: #0066ff;
+            --accent-color: #9500ff;
+            --dark-bg: #050a18;
+            --text-color: #e0e0ff;
+            --light-text: #ffffff;
+            --card-bg: rgba(15, 20, 40, 0.8);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Orbitron', sans-serif;
+        }
+        
+        body {
+            background-color: var(--dark-bg);
+            color: var(--text-color);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+        
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: rgba(0, 0, 0, 0.2);
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(var(--primary-color), var(--secondary-color));
+            border-radius: 4px;
+        }
+        
+     
+      
+        /* 🥳🥳About Section🥳🥳 */
+        .about-section {
+            padding: 120px 2rem 80px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .about-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(0, 247, 255, 0.1), transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(149, 0, 255, 0.08), transparent 50%),
+                linear-gradient(135deg, rgba(0, 102, 255, 0.03), transparent);
+            animation: backgroundPulse 8s ease-in-out infinite;
+            z-index: -1;
+        }
+        
+        .about-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        .about-header {
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+        
+        .section-title {
+            font-size: 3rem;
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            animation: glowText 3s ease-in-out infinite;
+        }
+        
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: rgba(224, 224, 255, 0.8);
+            max-width: 800px;
+            margin: 0 auto;
+            animation: fadeInUp 1s ease 0.3s both;
+        }
+        
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            margin-bottom: 5rem;
+        }
+        
+        .about-content {
+            animation: slideInLeft 1s ease;
+        }
+        
+        .about-content h3 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            color: var(--light-text);
+            position: relative;
+        }
+        
+        .about-content h3::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+            border-radius: 2px;
+        }
+        
+        .about-content p {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            color: rgba(224, 224, 255, 0.9);
+            line-height: 1.8;
+        }
+        
+        .about-features {
+            margin-top: 2rem;
+        }
+        
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            padding: 0.5rem 0;
+        }
+        
+        .feature-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--dark-bg);
+            font-size: 1.2rem;
+            animation: pulse 2s infinite;
+        }
+        
+        .about-visual {
+            position: relative;
+            animation: slideInRight 1s ease;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+        
+        .stat-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(0, 247, 255, 0.3);
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            animation: fadeInUp 1s ease;
+        }
+        
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 247, 255, 0.1), transparent);
+            transition: left 0.6s ease;
+        }
+        
+        .stat-card:hover::before {
+            left: 100%;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 15px 30px rgba(0, 247, 255, 0.2);
+            border-color: var(--primary-color);
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--primary-color);
+            display: block;
+            margin-bottom: 0.5rem;
+            animation: countUp 2s ease-out;
+        }
+        
+        .stat-label {
+            font-size: 1rem;
+            color: rgba(224, 224, 255, 0.8);
+            font-weight: 500;
+        }
+        
+        /* Services Section */
+        .services-section {
+            padding: 80px 2rem;
+            background: linear-gradient(135deg, rgba(0, 102, 255, 0.05), rgba(149, 0, 255, 0.03));
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .services-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="%2300f7ff" opacity="0.1"><animate attributeName="opacity" values="0.1;0.5;0.1" dur="3s" repeatCount="indefinite"/></circle><circle cx="80" cy="40" r="1.5" fill="%230066ff" opacity="0.1"><animate attributeName="opacity" values="0.1;0.4;0.1" dur="4s" repeatCount="indefinite"/></circle><circle cx="60" cy="80" r="2.5" fill="%239500ff" opacity="0.1"><animate attributeName="opacity" values="0.1;0.6;0.1" dur="5s" repeatCount="indefinite"/></circle></svg>') repeat;
+            z-index: -1;
+        }
+        
+        .services-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .services-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+        
+        .service-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(0, 247, 255, 0.2);
+            border-radius: 20px;
+            padding: 2.5rem;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            animation: fadeInUp 1s ease;
+            cursor: pointer;
+        }
+        
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color), var(--accent-color));
+        }
+        
+        .service-card::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: radial-gradient(circle, rgba(0, 247, 255, 0.1), transparent);
+            transition: all 0.4s ease;
+            transform: translate(-50%, -50%);
+            border-radius: 50%;
+        }
+        
+        .service-card:hover::after {
+            width: 300px;
+            height: 300px;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0, 247, 255, 0.3);
+            border-color: var(--primary-color);
+        }
+        
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: var(--dark-bg);
+            margin-bottom: 1.5rem;
+            position: relative;
+            animation: iconFloat 3s ease-in-out infinite;
+        }
+        
+        .service-card:hover .service-icon {
+            animation: iconSpin 0.6s ease-in-out;
+        }
+        
+        .service-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--light-text);
+            position: relative;
+            z-index: 2;
+        }
+        
+        .service-description {
+            color: rgba(224, 224, 255, 0.8);
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .service-features {
+            list-style: none;
+            margin-bottom: 2rem;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .service-features li {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+            color: rgba(224, 224, 255, 0.7);
+            font-size: 0.9rem;
+        }
+        
+        .service-features li::before {
+            content: '▸';
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+        
+        .service-btn {
+            background: transparent;
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 2;
+            text-decoration: none;
+            display: inline-block;
+            overflow: hidden;
+        }
+        
+        .service-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            transition: left 0.3s ease;
+            z-index: -1;
+        }
+        
+        .service-btn:hover::before {
+            left: 0;
+        }
+        
+        .service-btn:hover {
+            color: var(--dark-bg);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 247, 255, 0.4);
+        }
+        
+        .more-services-btn {
+            display: block;
+            margin: 3rem auto 0;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            color: var(--dark-bg);
+            border: none;
+            padding: 1rem 3rem;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 20px rgba(0, 247, 255, 0.3);
+            text-decoration: none;
+            text-align: center;
+            max-width: 300px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .more-services-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s ease;
+        }
+        
+        .more-services-btn:hover::before {
+            left: 100%;
+        }
+        
+        .more-services-btn:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 10px 30px rgba(0, 247, 255, 0.5);
+        }
+        
+        /* Floating Elements */
+        .floating-elements {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: -1;
+        }
+        
+        .floating-element {
+            position: absolute;
+            color: rgba(0, 247, 255, 0.1);
+            font-size: 1.5rem;
+            animation: floatElement 15s linear infinite;
+        }
+        
+        /* Animations */
+        @keyframes backgroundPulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+        
+        @keyframes glowText {
+            0%, 100% {
+                text-shadow: 0 0 5px rgba(0, 247, 255, 0.5);
+            }
+            50% {
+                text-shadow: 0 0 20px rgba(0, 247, 255, 0.8), 0 0 30px rgba(0, 247, 255, 0.4);
+            }
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(0, 247, 255, 0.4);
+            }
+            50% {
+                transform: scale(1.05);
+                box-shadow: 0 0 0 10px rgba(0, 247, 255, 0);
+            }
+        }
+        
+        @keyframes countUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes iconFloat {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+        
+        @keyframes iconSpin {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+        
+        @keyframes floatElement {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.3;
+            }
+            90% {
+                opacity: 0.3;
+            }
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            
+            
+            .section-title {
+                font-size: 2.5rem;
+            }
+            
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .service-card {
+                padding: 2rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .about-section {
+                padding: 100px 1rem 60px;
+            }
+            
+            .services-section {
+                padding: 60px 1rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .service-card {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+     <!-- Navbar -->
+    <nav class="navbar" id="navbar">
+        <!-- Logo -->
+        <div class="logo" onclick="window.location.href='index.html'">
+            <!-- <div class="logo-icon">
+                <i class="fas fa-shield-alt"></i>
+            </div> -->
+            <span class="logo-text">CYBEX</span>
+        </div>
+        
+        <!-- Desktop Navigation -->
+        <div class="nav-container">
+            <ul class="nav-links">
+                <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="services.html"><i class="fas fa-cogs"></i> Services</a></li>
+                <li><a href="about.html"><i class="fas fa-info-circle"></i> About Us</a></li>
+                <li><a href="solutions.html"><i class="fas fa-lightbulb"></i> Solutions</a></li>
+                <li><a href="careers.html"><i class="fas fa-briefcase"></i> Careers</a></li>
+                <li><a href="contacts.html"><i class="fas fa-envelope"></i> Contact Us</a></li>
+            </ul>
+            <a href="#" class="get-started-btn">
+                <i class="fas fa-rocket"></i>
+                Get Started
+            </a>
+        </div>
+        
+        <!-- Mobile Menu Toggle -->
+        <button class="mobile-toggle" id="mobileToggle">
+            <i class="fas fa-bars" id="menuIcon"></i>
+        </button>
+    </nav>
+    
+    <!-- Mobile Navigation Overlay -->
+    <div class="mobile-nav-overlay" id="mobileNavOverlay">
+        <ul class="mobile-nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="services.html"><i class="fas fa-cogs"></i> Services</a></li>
+            <li><a href="about.html"><i class="fas fa-info-circle"></i> About Us</a></li>
+            <li><a href="solutions.html"><i class="fas fa-lightbulb"></i> Solutions</a></li>
+            <li><a href="careers.html"><i class="fas fa-briefcase"></i> Careers</a></li>
+            <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact Us</a></li>
+        </ul>
+        <div class="mobile-get-started">
+            <a href="#" class="get-started-btn">
+                <i class="fas fa-rocket"></i>
+                Get Started
+            </a>
+        </div>
+    </div>
+    <!--  🥳🥳🥳 -->
+
+    <!-- About Section -->
+    <section class="about-section" id="about">
+        <div class="about-container">
+            <div class="about-header">
+              
+              
+            </div>
+            
+            <div class="about-grid">
+                <div class="about-content">
+                    <h3>Leading Cybersecurity Innovation</h3>
+                    <p>Since 2015, CyberShield has been at the forefront of cybersecurity innovation, developing cutting-edge AI-powered solutions that protect organizations from evolving cyber threats.</p>
+                    <p>Our team of world-class security experts and AI researchers work tirelessly to stay ahead of cybercriminals, ensuring your digital assets remain secure in an increasingly connected world.</p>
+                    
+                    <div class="about-features">
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <span>Advanced Threat Detection</span>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-brain"></i>
+                            </div>
+                            <span>AI-Powered Intelligence</span>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <span>24/7 Monitoring & Response</span>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-globe"></i>
+                            </div>
+                            <span>Global Security Network</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="about-visual">
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <span class="stat-number">10K+</span>
+                            <span class="stat-label">Protected Organizations</span>
+                        </div>
+                        <div class="stat-card">
+                            <span class="stat-number">99.9%</span>
+                            <span class="stat-label">Threat Detection Rate</span>
+                        </div>
+                        <div class="stat-card">
+                            <span class="stat-number">50+</span>
+                            <span class="stat-label">Countries Served</span>
+                        </div>
+                        <div class="stat-card">
+                            <span class="stat-number">24/7</span>
+                            <span class="stat-label">Security Operations</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="floating-elements">
+            <div class="floating-element" style="left: 10%; animation-delay: 0s;"><i class="fas fa-lock"></i></div>
+            <div class="floating-element" style="left: 20%; animation-delay: 2s;"><i class="fas fa-shield-virus"></i></div>
+            <div class="floating-element" style="left: 30%; animation-delay: 4s;"><i class="fas fa-fingerprint"></i></div>
+            <div class="floating-element" style="left: 40%; animation-delay: 6s;"><i class="fas fa-key"></i></div>
+            <div class="floating-element" style="left: 50%; animation-delay: 8s;"><i class="fas fa-user-shield"></i></div>
+            <div class="floating-element" style="left: 60%; animation-delay: 10s;"><i class="fas fa-network-wired"></i></div>
+            <div class="floating-element" style="left: 70%; animation-delay: 12s;"><i class="fas fa-bug"></i></div>
+            <div class="floating-element" style="left: 80%; animation-delay: 14s;"><i class="fas fa-eye"></i></div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services-section" id="services">
+        <div class="services-container">
+            <div class="services-header">
+                <h2 class="section-title">Our Core Services</h2>
+                <p class="section-subtitle">Comprehensive cybersecurity solutions powered by advanced AI and delivered by industry experts.</p>
+            </div>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                    <h3 class="service-title">Threat Detection & Analysis</h3>
+                    <p class="service-description">Advanced AI-powered threat detection system that identifies and analyzes potential security risks in real-time, providing comprehensive protection against known and unknown threats.</p>
+                    <ul class="service-features">
+                        <li>Real-time threat monitoring</li>
+                        <li>Behavioral analysis algorithms</li>
+                        <li>Zero-day threat detection</li>
+                        <li>Automated incident response</li>
+                        <li>Threat intelligence integration</li>
+                    </ul>
+                    <a href="#" class="service-btn">Learn More</a>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-shield-virus"></i>
+                    </div>
+                    <h3 class="service-title">Incident Response & Recovery</h3>
+                    <p class="service-description">Rapid incident response services with expert-led investigation, containment, and recovery procedures to minimize damage and restore operations quickly.</p>
+                    <ul class="service-features">
+                        <li>24/7 emergency response</li>
+                        <li>Forensic investigation</li>
+                        <li>Damage assessment</li>
+                        <li>System recovery planning</li>
+                        <li>Post-incident analysis</li>
+                    </ul>
+                    <a href="#" class="service-btn">Learn More</a>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-user-shield"></i>
+                    </div>
+                    <h3 class="service-title">Security Consulting & Audits</h3>
+                    <p class="service-description">Comprehensive security assessments and strategic consulting to identify vulnerabilities, ensure compliance, and strengthen your overall security posture.</p>
+                    <ul class="service-features">
+                        <li>Vulnerability assessments</li>
+                        <li>Penetration testing</li>
+                        <li>Compliance auditing</li>
+                        <li>Security policy development</li>
+                        <li>Risk management strategies</li>
+                    </ul>
+                    <a href="#" class="service-btn">Learn More</a>
+                </div>
+            </div>
+            
+            <!-- <a href="/services" class="more-services-btn">
+                <span>View All Services</span>
+                <i class="fas fa-arrow-right" style="margin-left: 0.5rem;"></i> -->
+            </a>
+        </div>
+        
+        <div class="floating-elements">
+            <div class="floating-element" style="left: 15%; animation-delay: 1s;"><i class="fas fa-code"></i></div>
+            <div class="floating-element" style="left: 25%; animation-delay: 3s;"><i class="fas fa-server"></i></div>
+            <div class="floating-element" style="left: 35%; animation-delay: 5s;"><i class="fas fa-database"></i></div>
+            <div class="floating-element" style="left: 45%; animation-delay: 7s;"><i class="fas fa-wifi"></i></div>
+            </div>
+           </section>
+             <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h3>CYBEX</h3>
+                    <p>Advanced cybersecurity solutions powered by AI, protecting organizations worldwide with cutting-edge threat detection and response capabilities.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Solutions</h3>
+                    <a href="#">Threat Detection</a>
+                    <a href="#">Incident Response</a>
+                    <a href="#">Security Consulting</a>
+                    <a href="#">Compliance Management</a>
+                    <a href="#">Risk Assessment</a>
+                </div>
+                <div class="footer-section">
+                    <h3>Company</h3>
+                    <a href="about.html">About Us</a>
+                    <a href="careers.html">Careers</a>
+                    <a href="#">Certifications</a>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <p>📧 info@cybex.com</p>
+                    <p>📞 +254 (717) 378-758</p>
+                    <p>🏢 123 Tech Solutions<br>
+Woodvale Grove, Westlands
+Nairobi, Kenya</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Cybex. All rights reserved. | Privacy Policy | Terms of Service</p>
+            </div>
+        </div>
+    </footer>
+           <script src="airs.js"></script>
+           </body>
+           </html>

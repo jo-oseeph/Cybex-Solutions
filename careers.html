@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Careers - CyberShield</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #00f7ff;
+            --secondary-color: #0066ff;
+            --accent-color: #9500ff;
+            --dark-bg: #050a18;
+            --text-color: #e0e0ff;
+            --light-text: #ffffff;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Share Tech Mono', monospace;
+            background-color: var(--dark-bg);
+            color: var(--text-color);
+            overflow-x: hidden;
+            min-height: 100vh;
+            line-height: 1.6;
+        }
+        
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: rgba(0, 0, 0, 0.2);
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(var(--primary-color), var(--secondary-color));
+            border-radius: 4px;
+        }
+        
+        /* Background Effects */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 20% 30%, rgba(0, 102, 255, 0.1), transparent 50%),
+                        radial-gradient(circle at 80% 70%, rgba(149, 0, 255, 0.1), transparent 50%),
+                        radial-gradient(circle at 50% 50%, rgba(0, 247, 255, 0.05), transparent 50%);
+            z-index: -1;
+            pointer-events: none;
+        }
+        
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+        }
+        
+        /* Back to Home Button */
+        .back-home-btn {
+            position: absolute;
+            top: 2rem;
+            left: 2rem;
+            background: rgba(0, 247, 255, 0.1);
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+            padding: 0.8rem 1.2rem;
+            border-radius: 50px;
+            font-family: 'Share Tech Mono', monospace;
+            font-weight: 600;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 0 20px rgba(0, 247, 255, 0.1);
+        }
+        
+        .back-home-btn:hover {
+            background: rgba(0, 247, 255, 0.2);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 25px rgba(0, 247, 255, 0.3);
+            border-color: var(--secondary-color);
+            color: var(--secondary-color);
+        }
+        
+        .back-home-btn i {
+            transition: transform 0.3s ease;
+        }
+        
+        .back-home-btn:hover i {
+            transform: translateX(-3px);
+        }
+        
+        /* Main Content */
+        .careers-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        /* Header Section */
+        .careers-header {
+            margin-bottom: 3rem;
+        }
+        
+        .careers-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 4rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            background: linear-gradient(120deg, var(--primary-color), var(--secondary-color), var(--accent-color));
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animation: gradientShift 4s ease-in-out infinite;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+        
+        .careers-subtitle {
+            font-size: 1.3rem;
+            color: rgba(224, 224, 255, 0.7);
+            font-weight: 400;
+            margin-bottom: 2rem;
+        }
+        
+        /* Status Message */
+        .status-message {
+            background: rgba(0, 247, 255, 0.05);
+            border: 1px solid rgba(0, 247, 255, 0.2);
+            border-radius: 20px;
+            padding: 3rem 2rem;
+            margin-bottom: 3rem;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 10px 40px rgba(0, 247, 255, 0.1);
+        }
+        
+        .status-icon {
+            font-size: 4rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            opacity: 0.8;
+        }
+        
+        .status-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--light-text);
+        }
+        
+        .status-description {
+            font-size: 1.1rem;
+            color: rgba(224, 224, 255, 0.8);
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+        
+        /* Social Media Section */
+        .social-section {
+            margin-top: 2rem;
+        }
+        
+        .social-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--light-text);
+        }
+        
+        .social-description {
+            font-size: 1rem;
+            color: rgba(224, 224, 255, 0.7);
+            margin-bottom: 2rem;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .social-link {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+            color: var(--text-color);
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            padding: 1rem;
+            border-radius: 15px;
+            background: rgba(0, 247, 255, 0.02);
+            border: 1px solid rgba(0, 247, 255, 0.1);
+            backdrop-filter: blur(5px);
+            min-width: 120px;
+        }
+        
+        .social-link:hover {
+            transform: translateY(-5px) scale(1.05);
+            background: rgba(0, 247, 255, 0.1);
+            border-color: var(--primary-color);
+            box-shadow: 0 10px 30px rgba(0, 247, 255, 0.2);
+        }
+        
+        .social-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .social-icon::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transition: left 0.6s ease;
+        }
+        
+        .social-link:hover .social-icon::before {
+            left: 100%;
+        }
+        
+        /* Individual Social Platform Colors */
+        .facebook .social-icon {
+            background: linear-gradient(135deg, #1877f2, #42a5f5);
+            color: white;
+        }
+        
+        .linkedin .social-icon {
+            background: linear-gradient(135deg, #0077b5, #00a0dc);
+            color: white;
+        }
+        
+        .twitter .social-icon {
+            background: linear-gradient(135deg, #1da1f2, #0d8bd9);
+            color: white;
+        }
+        
+        .instagram .social-icon {
+            background: linear-gradient(135deg, #e4405f, #f77737, #fccc63);
+            color: white;
+        }
+        
+        .social-name {
+            font-weight: 600;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+        
+        /* Animations */
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Apply fade-in animation */
+        .careers-content > * {
+            animation: fadeInUp 0.8s ease forwards;
+        }
+        
+        .careers-header {
+            animation-delay: 0.2s;
+        }
+        
+        .status-message {
+            animation-delay: 0.4s;
+        }
+        
+        .social-section {
+            animation-delay: 0.6s;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+            
+            .back-home-btn {
+                top: 1rem;
+                left: 1rem;
+                padding: 0.6rem 1rem;
+                font-size: 0.8rem;
+            }
+            
+            .careers-title {
+                font-size: 2.5rem;
+                letter-spacing: 2px;
+            }
+            
+            .careers-subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .status-message {
+                padding: 2rem 1.5rem;
+                margin-bottom: 2rem;
+            }
+            
+            .status-icon {
+                font-size: 3rem;
+            }
+            
+            .status-title {
+                font-size: 1.5rem;
+            }
+            
+            .status-description {
+                font-size: 1rem;
+            }
+            
+            .social-title {
+                font-size: 1.5rem;
+            }
+            
+            .social-links {
+                gap: 1rem;
+            }
+            
+            .social-link {
+                min-width: 100px;
+                padding: 0.8rem;
+            }
+            
+            .social-icon {
+                width: 50px;
+                height: 50px;
+                font-size: 1.5rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .careers-title {
+                font-size: 2rem;
+            }
+            
+            .social-links {
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+            }
+            
+            .social-link {
+                flex-direction: row;
+                min-width: 200px;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Back to Home Button -->
+        <a href="index.html" class="back-home-btn">
+            <i class="fas fa-arrow-left"></i>
+            Back to Home
+        </a>
+        
+        <!-- Main Content -->
+        <div class="careers-content">
+            <!-- Header Section -->
+            <div class="careers-header">
+                <h1 class="careers-title">Careers</h1>
+                <p class="careers-subtitle">Join the Future of Cybersecurity</p>
+            </div>
+            
+            <!-- Status Message -->
+            <div class="status-message">
+                <div class="status-icon">
+                    <i class="fas fa-clock"></i>
+                </div>
+                <h2 class="status-title">Coming Soon</h2>
+                <p class="status-description">
+                    We're currently building an amazing team of cybersecurity professionals and tech innovators. 
+                    While we don't have any open positions at the moment, we're always looking for talented 
+                    individuals who are passionate about protecting the digital world.
+                </p>
+                
+                <!-- Social Media Section -->
+                <div class="social-section">
+                    <h3 class="social-title">Stay Updated</h3>
+                    <p class="social-description">
+                        Follow us on social media to be the first to know when new career opportunities become available!
+                    </p>
+                    
+                    <div class="social-links">
+                        <a href="https://facebook.com/cybershield" class="social-link facebook" target="_blank" rel="noopener noreferrer">
+                            <div class="social-icon">
+                                <i class="fab fa-facebook-f"></i>
+                            </div>
+                            <span class="social-name">Facebook</span>
+                        </a>
+                        
+                        <a href="https://linkedin.com/company/cybershield" class="social-link linkedin" target="_blank" rel="noopener noreferrer">
+                            <div class="social-icon">
+                                <i class="fab fa-linkedin-in"></i>
+                            </div>
+                            <span class="social-name">LinkedIn</span>
+                        </a>
+                        
+                        <a href="https://twitter.com/cybershield" class="social-link twitter" target="_blank" rel="noopener noreferrer">
+                            <div class="social-icon">
+                                <i class="fab fa-twitter"></i>
+                            </div>
+                            <span class="social-name">Twitter</span>
+                        </a>
+                        
+                        <a href="https://instagram.com/cybershield" class="social-link instagram" target="_blank" rel="noopener noreferrer">
+                            <div class="social-icon">
+                                <i class="fab fa-instagram"></i>
+                            </div>
+                            <span class="social-name">Instagram</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Add loading animation
+        window.addEventListener('load', function() {
+            document.body.style.opacity = '0';
+            document.body.style.transition = 'opacity 0.5s ease';
+            setTimeout(() => {
+                document.body.style.opacity = '1';
+            }, 100);
+        });
+        
+        // Add hover effects for social links
+        const socialLinks = document.querySelectorAll('.social-link');
+        socialLinks.forEach(link => {
+            link.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-5px) scale(1.05)';
+            });
+            
+            link.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+        
+        // Add click tracking for social links (optional analytics)
+        socialLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                const platform = this.classList[1]; // Gets the platform class
+                console.log(`User clicked on ${platform} social link`);
+                // You can add analytics tracking here
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,892 @@
+
+     <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - CyberShield</title>
+    <link rel="stylesheet" href="airs.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #00f7ff;
+            --secondary-color: #0066ff;
+            --accent-color: #9500ff;
+            --dark-bg: #050a18;
+            --text-color: #e0e0ff;
+            --light-text: #ffffff;
+            --card-bg: rgba(15, 20, 40, 0.8);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Orbitron', sans-serif;
+        }
+        
+        body {
+            background-color: var(--dark-bg);
+            color: var(--text-color);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+        
+        
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: rgba(0, 0, 0, 0.2);
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(var(--primary-color), var(--secondary-color));
+            border-radius: 4px;
+        }
+        
+        /* Navbar */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(5, 10, 24, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 5px 15px rgba(0, 247, 255, 0.2);
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            background: linear-gradient(120deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+            letter-spacing: 1px;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            transition: width 0.3s ease;
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        .nav-links a.active {
+            color: var(--primary-color);
+        }
+        
+        .nav-links a.active::after {
+            width: 100%;
+        }
+        
+        /* Page Header */
+        .page-header {
+            padding: 120px 2rem 80px;
+            text-align: center;
+            background: radial-gradient(circle at top center, rgba(0, 102, 255, 0.15), transparent 70%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .page-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(0, 247, 255, 0.05), rgba(149, 0, 255, 0.05));
+            animation: gradientShift 8s ease-in-out infinite;
+        }
+        
+        .page-header h1 {
+            font-size: 3.5rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            animation: slideInDown 1s ease;
+        }
+        
+        .page-header p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            color: rgba(224, 224, 255, 0.8);
+            animation: fadeInUp 1s ease 0.3s both;
+        }
+        
+        /* Company Story Section */
+        .company-story {
+            padding: 80px 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .story-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            margin-bottom: 80px;
+        }
+        
+        .story-content h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animation: slideInLeft 1s ease;
+        }
+        
+        .story-content p {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            color: rgba(224, 224, 255, 0.9);
+            animation: fadeInLeft 1s ease 0.2s both;
+        }
+        
+        .story-visual {
+            position: relative;
+            animation: slideInRight 1s ease;
+        }
+        
+        .story-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(0, 247, 255, 0.2);
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 247, 255, 0.1);
+            transform: perspective(1000px) rotateY(-10deg);
+            transition: all 0.3s ease;
+        }
+        
+        .story-card:hover {
+            transform: perspective(1000px) rotateY(0deg) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0, 247, 255, 0.2);
+        }
+        
+        .story-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .stat-item {
+            text-align: center;
+            padding: 1rem;
+            background: rgba(0, 247, 255, 0.05);
+            border-radius: 10px;
+            border: 1px solid rgba(0, 247, 255, 0.1);
+        }
+        
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: block;
+        }
+        
+        .stat-label {
+            font-size: 0.9rem;
+            color: rgba(224, 224, 255, 0.7);
+            margin-top: 0.5rem;
+        }
+        
+        /* Mission Vision Values */
+        .mvv-section {
+            padding: 80px 2rem;
+            background: linear-gradient(135deg, rgba(0, 102, 255, 0.03), rgba(149, 0, 255, 0.03));
+        }
+        
+        .mvv-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .mvv-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .mvv-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(0, 247, 255, 0.2);
+            border-radius: 20px;
+            padding: 2.5rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            animation: fadeInUp 1s ease;
+        }
+        
+        .mvv-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 247, 255, 0.2);
+        }
+        
+        .mvv-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color), var(--accent-color));
+        }
+        
+        .mvv-icon {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            animation: pulse 2s infinite;
+        }
+        
+        .mvv-card h3 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: var(--light-text);
+        }
+        
+        .mvv-card p {
+            color: rgba(224, 224, 255, 0.8);
+            line-height: 1.7;
+        }
+        
+        /* Team Section */
+        .team-section {
+            padding: 80px 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 3rem;
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animation: fadeInDown 1s ease;
+        }
+        
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .team-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(0, 247, 255, 0.2);
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            animation: fadeInUp 1s ease;
+        }
+        
+        .team-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0, 247, 255, 0.2);
+        }
+        
+        .team-avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin: 0 auto 1.5rem;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: var(--dark-bg);
+            font-weight: 700;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .team-avatar::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transform: translateX(-100%);
+            transition: transform 0.6s ease;
+        }
+        
+        .team-card:hover .team-avatar::before {
+            transform: translateX(100%);
+        }
+        
+        .team-name {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--light-text);
+        }
+        
+        .team-role {
+            color: var(--primary-color);
+            font-weight: 600;
+            margin-bottom: 1rem;
+            font-size: 1rem;
+        }
+        
+        .team-bio {
+            color: rgba(224, 224, 255, 0.8);
+            font-size: 0.9rem;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+        
+        .team-social {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+        
+        .social-link {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(0, 247, 255, 0.1);
+            border: 1px solid rgba(0, 247, 255, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .social-link:hover {
+            background: var(--primary-color);
+            color: var(--dark-bg);
+            transform: scale(1.1);
+        }
+        
+        /* Footer */
+        .footer {
+            background: linear-gradient(135deg, rgba(5, 10, 24, 0.95), rgba(0, 102, 255, 0.05));
+            padding: 60px 2rem 30px;
+            border-top: 1px solid rgba(0, 247, 255, 0.2);
+        }
+        
+        .footer-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+        
+        .footer-section h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: var(--primary-color);
+        }
+        
+        .footer-section p, .footer-section a {
+            color: rgba(224, 224, 255, 0.8);
+            text-decoration: none;
+            margin-bottom: 0.8rem;
+            display: block;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-section a:hover {
+            color: var(--primary-color);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(0, 247, 255, 0.1);
+            color: rgba(224, 224, 255, 0.6);
+        }
+        
+        /* Animations */
+        @keyframes slideInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+        }
+        
+        @keyframes gradientShift {
+            0%, 100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.5;
+            }
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 1rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .page-header h1 {
+                font-size: 2.5rem;
+            }
+            
+            .story-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .story-content h2 {
+                font-size: 2rem;
+            }
+            
+            .mvv-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .page-header {
+                padding: 100px 1rem 60px;
+            }
+            
+            .company-story, .mvv-section, .team-section {
+                padding: 60px 1rem;
+            }
+            
+            .mvv-card {
+                padding: 2rem;
+            }
+            
+            .team-card {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar" id="navbar">
+        <!-- Logo -->
+        <div class="logo" onclick="window.location.href='index.html'">
+            <!-- <div class="logo-icon">
+                <i class="fas fa-shield-alt"></i>
+            </div> -->
+            <span class="logo-text">CYBEX</span>
+        </div>
+        
+        <!-- Desktop Navigation -->
+        <div class="nav-container">
+            <ul class="nav-links">
+                <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="services.html"><i class="fas fa-cogs"></i> Services</a></li>
+                <li><a href="about.html"><i class="fas fa-info-circle"></i> About Us</a></li>
+                <li><a href="solutions.html"><i class="fas fa-lightbulb"></i> Solutions</a></li>
+                <li><a href="careers.html"><i class="fas fa-briefcase"></i> Careers</a></li>
+                <li><a href="contacts.html"><i class="fas fa-envelope"></i> Contact Us</a></li>
+            </ul>
+            <a href="#" class="get-started-btn">
+                <i class="fas fa-rocket"></i>
+                Get Started
+            </a>
+        </div>
+        
+        <!-- Mobile Menu Toggle -->
+        <button class="mobile-toggle" id="mobileToggle">
+            <i class="fas fa-bars" id="menuIcon"></i>
+        </button>
+    </nav>
+    
+    <!-- Mobile Navigation Overlay -->
+    <div class="mobile-nav-overlay" id="mobileNavOverlay">
+        <ul class="mobile-nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="services.html"><i class="fas fa-cogs"></i> Services</a></li>
+            <li><a href="about.html"><i class="fas fa-info-circle"></i> About Us</a></li>
+            <li><a href="solutions.html"><i class="fas fa-lightbulb"></i> Solutions</a></li>
+            <li><a href="careers.html"><i class="fas fa-briefcase"></i> Careers</a></li>
+            <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact Us</a></li>
+        </ul>
+        <div class="mobile-get-started">
+            <a href="#" class="get-started-btn">
+                <i class="fas fa-rocket"></i>
+                Get Started
+            </a>
+        </div>
+    </div>
+    <!--  🥳🥳🥳 -->
+    <!-- Page Header -->
+    <section class="page-header">
+        <h1>About CyberShield</h1>
+        <p>Leading the future of cybersecurity with innovative AI-powered solutions and unparalleled expertise in protecting digital infrastructures worldwide.</p>
+    </section>
+
+    <!--🥳🥳 Company Story🥳🥳 -->
+    <section class="company-story">
+        <div class="story-grid">
+            <div class="story-content">
+                <h2>Our Journey</h2>
+                <p>Founded in 2015 by a team of cybersecurity veterans and AI pioneers, CyberShield emerged from the critical need to address sophisticated cyber threats using cutting-edge technology.</p>
+                <p>Starting as a small consultancy firm, we've grown into a global leader in cybersecurity solutions, protecting over 10,000 organizations across 50+ countries with our advanced AI-powered defense systems.</p>
+                <p>Our commitment to innovation and excellence has made us the trusted partner for Fortune 500 companies, government agencies, and organizations of all sizes seeking robust cybersecurity protection.</p>
+            </div>
+            <div class="story-visual">
+                <div class="story-card">
+                    <div class="story-stats">
+                        <div class="stat-item">
+                            <span class="stat-number">10K+</span>
+                            <span class="stat-label">Protected Organizations</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">50+</span>
+                            <span class="stat-label">Countries Served</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">99.9%</span>
+                            <span class="stat-label">Threat Detection Rate</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">24/7</span>
+                            <span class="stat-label">Security Monitoring</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission, Vision, Values -->
+    <section class="mvv-section">
+        <div class="mvv-container">
+            <h2 class="section-title">Our Foundation</h2>
+            <div class="mvv-grid">
+                <div class="mvv-card">
+                    <div class="mvv-icon">
+                        <i class="fas fa-crosshairs"></i>
+                    </div>
+                    <h3>Mission</h3>
+                    <p>To provide advanced cybersecurity solutions that empower organizations to operate securely in the digital landscape, protecting their most valuable assets through innovative AI-driven technologies and expert guidance.</p>
+                </div>
+                <div class="mvv-card">
+                    <div class="mvv-icon">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <h3>Vision</h3>
+                    <p>To be the global leader in cybersecurity innovation, creating a world where organizations can embrace digital transformation with complete confidence in their security posture.</p>
+                </div>
+                <div class="mvv-card">
+                    <div class="mvv-icon">
+                        <i class="fas fa-gem"></i>
+                    </div>
+                    <h3>Values</h3>
+                    <p>Excellence, Innovation, Integrity, and Trust. We believe in delivering superior solutions while maintaining the highest ethical standards and building lasting partnerships with our clients.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team-section">
+        <h2 class="section-title">Our Expert Team</h2>
+        <div class="team-grid">
+            <div class="team-card">
+                <div class="team-avatar">
+                    <i class="fas fa-user-shield"></i>
+                </div>
+                <h3 class="team-name">Sarah Chen</h3>
+                <p class="team-role">Chief Executive Officer</p>
+                <p class="team-bio">Former NSA cybersecurity specialist with 15+ years of experience in threat intelligence and AI security solutions. Leads our strategic vision and innovation initiatives.</p>
+                <div class="team-social">
+                    <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+            
+            <div class="team-card">
+                <div class="team-avatar">
+                    <i class="fas fa-brain"></i>
+                </div>
+                <h3 class="team-name">Dr. Marcus Rodriguez</h3>
+                <p class="team-role">Chief Technology Officer</p>
+                <p class="team-bio">PhD in AI and Machine Learning from MIT. Pioneered our threat detection algorithms and leads the development of next-generation cybersecurity technologies.</p>
+                <div class="team-social">
+                    <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+            
+            <div class="team-card">
+                <div class="team-avatar">
+                    <i class="fas fa-search"></i>
+                </div>
+                <h3 class="team-name">Alex Thompson</h3>
+                <p class="team-role">Head of Threat Intelligence</p>
+                <p class="team-bio">Certified Ethical Hacker with expertise in advanced persistent threats. Oversees our global threat monitoring and incident response operations.</p>
+                <div class="team-social">
+                    <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+            
+            <div class="team-card">
+                <div class="team-avatar">
+                    <i class="fas fa-code"></i>
+                </div>
+                <h3 class="team-name">Emily Zhang</h3>
+                <p class="team-role">Lead Security Engineer</p>
+                <p class="team-bio">Full-stack security engineer specializing in secure application development and vulnerability assessment. Leads our penetration testing team.</p>
+                <div class="team-social">
+                    <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+            
+            <div class="team-card">
+                <div class="team-avatar">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <h3 class="team-name">James Wilson</h3>
+                <p class="team-role">Head of Operations</p>
+                <p class="team-bio">Operations expert with 12+ years in cybersecurity service delivery. Ensures our 24/7 monitoring and response capabilities maintain the highest standards.</p>
+                <div class="team-social">
+                    <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+            
+            <div class="team-card">
+                <div class="team-avatar">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+                <h3 class="team-name">Dr. Priya Patel</h3>
+                <p class="team-role">Research Director</p>
+                <p class="team-bio">Cybersecurity researcher with focus on quantum-resistant cryptography and zero-trust architectures. Leads our R&D initiatives and academic partnerships.</p>
+                <div class="team-social">
+                    <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-researchgate"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h3>CYBEX</h3>
+                    <p>Advanced cybersecurity solutions powered by AI, protecting organizations worldwide with cutting-edge threat detection and response capabilities.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Solutions</h3>
+                    <a href="#">Threat Detection</a>
+                    <a href="#">Incident Response</a>
+                    <a href="#">Security Consulting</a>
+                    <a href="#">Compliance Management</a>
+                    <a href="#">Risk Assessment</a>
+                </div>
+                <div class="footer-section">
+                    <h3>Company</h3>
+                    <a href="about.html">About Us</a>
+                    <a href="careers.html">Careers</a>
+                    <a href="#">Certifications</a>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <p>📧 info@cybex.com</p>
+                    <p>📞 +254 (717) 378-758</p>
+                    <p>🏢 123 Tech Solutions<br>
+Woodvale Grove, Westlands
+Nairobi, Kenya</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Cybex. All rights reserved. | Privacy Policy | Terms of Service</p>
+            </div>
+        </div>
+    </footer>
+<script src="airs.js"></script>
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions
