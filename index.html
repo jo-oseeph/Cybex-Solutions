@@ -423,9 +423,9 @@
         
         <!-- Desktop Navigation -->
         <ul class="nav-links">
-            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="index.html">Home</a></li>
             <li class="dropdown">
-                <a href="#" class="dropdown-toggle">
+                <a href="javascript:void(0)" class="dropdown-toggle">
                     Services <i class="fas fa-chevron-down"></i>
                 </a>
                 <ul class="dropdown-menu">
@@ -771,6 +771,16 @@ Nairobi, Kenya</p>
     <!-- 🥳🥳 Script 🥳 -->
    
      <script src="airs.js"></script>
+     <script>
+        // Highlight the active nav link based on current page
+  const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+  document.querySelectorAll('.nav-links a, .mobile-nav-links a').forEach(link => {
+    link.classList.remove('active');
+    if (link.getAttribute('href') === currentPage) {
+      link.classList.add('active');
+    }
+  });
+     </script>
        </body>
        </html>
 

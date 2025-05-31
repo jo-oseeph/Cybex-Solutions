@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts - Using "Orbitron" for that tech feel -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Exo:wght@400;600&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="airs.css">
+ 
+</head>
+<body>
+      <!-- Navigation -->
+    <nav class="navbar">
+        <div class="logo">
+            <div class="logo-text" style=" background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            background-clip: text;">CYBEX</div>
+        </div>
+        
+        <!-- Desktop Navigation -->
+        <ul class="nav-links">
+            <li><a href="index.html" class="active">Home</a></li>
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle">
+                    Services <i class="fas fa-chevron-down"></i>
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a href="threat-detection.html">Threat Detection</a></li>
+                    <li><a href="incident-response.html">Incident Response</a></li>
+                    <li><a href="security-consulting.html">Security Consulting</a></li>
+                    <li><a href="compliance-management.html">Compliance Management</a></li>
+                    <li><a href="risk-assessment.html">Risk Assessment</a></li>
+                    <li><a href="penetration-testing.html">Penetration Testing</a></li>
+                </ul>
+            </li>
+           
+            <li><a href="about.html">About Us</a></li>
+             <li><a href="careers.html">Careers</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+        
+        <!-- Mobile Menu Button -->
+        <button class="hamburger" id="mobile-menu-toggle">
+            <i class="fas fa-bars" id="hamburger-icon"></i>
+        </button>
+    </nav>
+
+    <!-- Mobile Navigation Overlay -->
+    <div class="mobile-overlay" id="mobile-overlay"></div>
+    
+    <!-- Mobile Navigation -->
+    <nav class="mobile-nav" id="mobile-nav">
+        <!-- Mobile Close Button -->
+        <button class="mobile-close" id="mobile-close">
+            <i class="fas fa-times"></i>
+        </button>
+        
+        <ul class="mobile-nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li class="mobile-dropdown">
+                <button class="mobile-dropdown-toggle">
+                    Services <i class="fas fa-chevron-down"></i>
+                </button>
+                <ul class="mobile-dropdown-menu">
+                    <li><a href="threat-detection.html">Threat Detection</a></li>
+                    <li><a href="incident-response.html">Incident Response</a></li>
+                    <li><a href="security-consulting.html">Security Consulting</a></li>
+                    <li><a href="compliance-management.html">Compliance Management</a></li>
+                    <li><a href="risk-assessment.html">Risk Assessment</a></li>
+                    <li><a href="penetration-testing.html">Penetration Testing</a></li>
+                </ul>
+            </li>
+             <li><a href="about.html">About Us</a></li>
+            <li><a href="careers.html">Careers</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+    </nav>
+    <!--  🥳🥳🥳 -->
+    <script src="airs.js"></script>
+</body>
+</html>

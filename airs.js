@@ -85,15 +85,19 @@
             });
         });
 
-        // Prevent dropdown from closing on desktop
-        const desktopDropdown = document.querySelector('.dropdown');
-        if (desktopDropdown) {
-            desktopDropdown.addEventListener('click', function(e) {
-                if (window.innerWidth > 768) {
-                    e.preventDefault();
-                }
-            });
+        // Prevent default only for the parent dropdown toggle, not submenu links
+const desktopDropdownToggle = document.querySelector('.dropdown-toggle');
+if (desktopDropdownToggle) {
+    desktopDropdownToggle.addEventListener('click', function(e) {
+        if (window.innerWidth > 768) {
+            e.preventDefault();
+            // Optionally toggle a class to show/hide the dropdown if you want click-to-open
+            // this.parentElement.classList.toggle('open');
         }
+    });
+}
+
+        
 
         // Close mobile menu on window resize to desktop
         window.addEventListener('resize', function() {
