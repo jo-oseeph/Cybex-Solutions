@@ -655,52 +655,72 @@
     </style>
 </head>
 <body>
-   <!-- Navbar -->
-    <nav class="navbar" id="navbar">
-        <!-- Logo -->
-        <div class="logo" onclick="window.location.href='index.html'">
-           <!--  <div class="logo-icon">
-                <i class="fas fa-shield-alt"></i>
-            </div> -->
-            <span class="logo-text">CYBEX</span>
+   <!-- Navigation -->
+    <nav class="navbar">
+        <div class="logo">
+            <div class="logo-text" style=" background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            background-clip: text;">CYBEX</div>
         </div>
         
         <!-- Desktop Navigation -->
-        <div class="nav-container">
-            <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="services.html">Services</a></li>
-                <li><a href="about.html">About Us</a></li>
-                <li><a href="solutions.html">Solutions</a></li>
-                <li><a href="careers.html">Careers</a></li>
-                <li><a href="contact.html">Contact Us</a></li>
-            </ul>
+        <ul class="nav-links">
+            <li><a href="index.html" class="active">Home</a></li>
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle">
+                    Services <i class="fas fa-chevron-down"></i>
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a href="threat-detection.html">Threat Detection</a></li>
+                    <li><a href="incident-response.html">Incident Response</a></li>
+                    <li><a href="security-consulting.html">Security Consulting</a></li>
+                    <li><a href="compliance-management.html">Compliance Management</a></li>
+                    <li><a href="risk-assessment.html">Risk Assessment</a></li>
+                    <li><a href="penetration-testing.html">Penetration Testing</a></li>
+                </ul>
+            </li>
+           
+            <li><a href="about.html">About Us</a></li>
+             <li><a href="careers.html">Careers</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+        </ul>
         
-        </div>
-        
-        <!-- Mobile Menu Toggle -->
-        <button class="mobile-toggle" id="mobileToggle">
-            <i class="fas fa-bars" id="menuIcon"></i>
+        <!-- Mobile Menu Button -->
+        <button class="hamburger" id="mobile-menu-toggle">
+            <i class="fas fa-bars" id="hamburger-icon"></i>
         </button>
     </nav>
-    
+
     <!-- Mobile Navigation Overlay -->
-    <div class="mobile-nav-overlay" id="mobileNavOverlay">
+    <div class="mobile-overlay" id="mobile-overlay"></div>
+    
+    <!-- Mobile Navigation -->
+    <nav class="mobile-nav" id="mobile-nav">
+        <!-- Mobile Close Button -->
+        <button class="mobile-close" id="mobile-close">
+            <i class="fas fa-times"></i>
+        </button>
+        
         <ul class="mobile-nav-links">
             <li><a href="index.html">Home</a></li>
-            <li><a href="services.html">Services</a></li>
-            <li><a href="about.html">About Us</a></li>
-            <li><a href="solutions.html">Solutions</a></li>
-            <li><a href="careers.html"> Careers</a></li>
-            <li><a href="contact.html"> Contact Us</a></li>
+            <li class="mobile-dropdown">
+                <button class="mobile-dropdown-toggle">
+                    Services <i class="fas fa-chevron-down"></i>
+                </button>
+                <ul class="mobile-dropdown-menu">
+                    <li><a href="threat-detection.html">Threat Detection</a></li>
+                    <li><a href="incident-response.html">Incident Response</a></li>
+                    <li><a href="security-consulting.html">Security Consulting</a></li>
+                    <li><a href="compliance-management.html">Compliance Management</a></li>
+                    <li><a href="risk-assessment.html">Risk Assessment</a></li>
+                    <li><a href="penetration-testing.html">Penetration Testing</a></li>
+                </ul>
+            </li>
+             <li><a href="about.html">About Us</a></li>
+            <li><a href="careers.html">Careers</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
         </ul>
-        <!-- <div class="mobile-get-started">
-            <a href="#" class="get-started-btn">
-                <i class="fas fa-rocket"></i>
-                Get Started
-            </a>
-        </div> -->
-    </div>
+    </nav>
     <!--  🥳🥳🥳 -->
     <!-- Page Header -->
     <section class="page-header">
