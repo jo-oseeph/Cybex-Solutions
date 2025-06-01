@@ -581,7 +581,7 @@
             z-index: 2;
         }
         
-        .service-features {
+        /* .service-features {
             list-style: none;
             margin-bottom: 2rem;
             position: relative;
@@ -602,8 +602,8 @@
             color: var(--primary-color);
             font-weight: bold;
         }
-        
-        /* .service-btn {
+         */
+        .service-btn {
             background: transparent;
             color: var(--primary-color);
             border: 2px solid var(--primary-color);
@@ -617,9 +617,9 @@
             text-decoration: none;
             display: inline-block;
             overflow: hidden;
-        } */
+        } 
         
-        /* .service-btn::before {
+         .service-btn::before {
             content: '';
             position: absolute;
             top: 0;

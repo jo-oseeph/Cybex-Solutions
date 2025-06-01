@@ -269,6 +269,65 @@
                 max-width: 90%;
             }
         }
+        /* Learn More Button Styles */
+.learn-more-btna {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8rem;
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+    color: var(--dark-bg);
+    text-decoration: none;
+    padding: 0.8rem 2rem;
+    border-radius: 30px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 15px rgba(0, 247, 255, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.learn-more-btna:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0 25px rgba(0, 247, 255, 0.6);
+}
+
+.learn-more-btna:hover i {
+    transform: translateX(5px);
+}
+
+.learn-more-btna i {
+    transition: transform 0.3s ease;
+    font-size: 0.9rem;
+}
+
+.learn-more-btna::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.6s ease;
+}
+
+.learn-more-btna:hover::before {
+    left: 100%;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .about-cta {
+        text-align: center;
+    }
+
+    .learn-more-btna {
+        padding: 0.7rem 1.5rem;
+        font-size: 0.9rem;
+    }
+}
   
  /* 🥳🥳About Section🥳🥳 */
 
@@ -566,7 +625,134 @@
         <div class="floating-icons" id="floating-icons"></div>
     </section>
 
-<!-- About Overview Section 🥳🥳-->
+
+<!-- Services 🥳🥳-->
+    <section class="services-section" id="services">
+        <div class="services-container">
+            <div class="services-header">
+                <h2 class="section-title" style="
+                   font-size: 2.5rem;
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            letter-spacing: 1.5px;">Our Core Solutions</h2>
+                <p class="section-subtitle">We offer comprehensive cybersecurity solutions powered by advanced AI and delivered by industry experts.</p>
+            </div>
+            
+            <div class="services-grid">
+            <!-- Service 1: Threat Detection & Analysis -->
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-search-plus"></i>
+                </div>
+                <h3 class="service-title">Threat Detection & Analysis</h3>
+                <p class="service-description">AI-powered threat detection system that identifies and analyzes security risks in real-time, providing comprehensive protection against evolving cyber threats.</p>
+                <!-- <ul class="service-features">
+                    <li>Real-time threat monitoring</li>
+                    <li>Behavioral analysis algorithms</li>
+                    <li>Zero-day threat detection</li>
+                    <li>Automated incident response</li>
+                </ul> -->
+                <a href="threat-detection-details.html" class="service-btn">Learn More</a>
+            </div>
+            
+            <!-- Service 2: Incident Response & Recovery -->
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-shield-virus"></i>
+                </div>
+                <h3 class="service-title">Incident Response & Recovery</h3>
+                <p class="service-description">Rapid incident response services with expert-led investigation, containment, and recovery procedures to minimize damage and restore operations.</p>
+                <!-- <ul class="service-features">
+                    <li>24/7 emergency response</li>
+                    <li>Forensic investigation</li>
+                    <li>Damage assessment</li>
+                    <li>System recovery planning</li>
+                </ul> -->
+                <a href="incident-response-details.html" class="service-btn">Learn More</a>
+            </div>
+            
+            <!-- Service 3: Security Consulting & Strategy -->
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-user-shield"></i>
+                </div>
+                <h3 class="service-title">Security Consulting & Strategy</h3>
+                <p class="service-description">Strategic security consulting to identify vulnerabilities, develop comprehensive security frameworks, and strengthen your overall security posture.</p>
+                <!-- <ul class="service-features">
+                    <li>Security policy development</li>
+                    <li>Risk management strategies</li>
+                    <li>Architecture reviews</li>
+                    <li>Security roadmap planning</li>
+                </ul> -->
+                <a href="security-consulting-details.html" class="service-btn">Learn More</a>
+            </div>
+            
+            <!-- Service 4: IT Security Governance & Compliance -->
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-balance-scale"></i>
+                </div>
+                <h3 class="service-title">IT Security Governance & Compliance</h3>
+                <p class="service-description">Comprehensive governance frameworks and compliance management to ensure your organization meets industry standards and regulatory requirements.</p>
+                <!-- <ul class="service-features">
+                    <li>Regulatory compliance audits</li>
+                    <li>Governance framework design</li>
+                    <li>Policy documentation</li>
+                    <li>Compliance monitoring</li>
+                </ul> -->
+                <a href="governance-compliance-details.html" class="service-btn">Learn More</a>
+            </div>
+            
+            <!-- Service 5: Managed Security Services -->
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-cogs"></i>
+                </div>
+                <h3 class="service-title">Managed Security Services</h3>
+                <p class="service-description">Complete managed security operations including 24/7 monitoring, threat hunting, and proactive security management for your infrastructure.</p>
+                <!-- <ul class="service-features">
+                    <li>24/7 SOC monitoring</li>
+                    <li>Threat hunting services</li>
+                    <li>Security device management</li>
+                    <li>Proactive threat intelligence</li>
+                </ul> -->
+                <a href="managed-security-details.html" class="service-btn">Learn More</a>
+            </div>
+            
+            <!-- Service 6: Security Audits & Assessments -->
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-clipboard-check"></i>
+                </div>
+                <h3 class="service-title">Security Audits & Assessments</h3>
+                <p class="service-description">Thorough security assessments including vulnerability testing, penetration testing, and comprehensive security evaluations to identify weaknesses.</p>
+                <!-- <ul class="service-features">
+                    <li>Vulnerability assessments</li>
+                    <li>Penetration testing</li>
+                    <li>Security maturity audits</li>
+                    <li>Network security reviews</li>
+                </ul> -->
+                <a href="security-audits-details.html" class="service-btn">Learn More</a>
+            </div>
+        </div>
+            <!-- <a href="services.html" class="more-services-btn">
+                <span>View All Services</span>
+                <i class="fas fa-arrow-right" style="margin-left: 0.5rem;"></i>
+            </a> -->
+        </div>
+        
+        <div class="floating-elements">
+            <div class="floating-element" style="left: 15%; animation-delay: 1s;"><i class="fas fa-code"></i></div>
+            <div class="floating-element" style="left: 25%; animation-delay: 3s;"><i class="fas fa-server"></i></div>
+            <div class="floating-element" style="left: 35%; animation-delay: 5s;"><i class="fas fa-database"></i></div>
+            <div class="floating-element" style="left: 45%; animation-delay: 7s;"><i class="fas fa-wifi"></i></div>
+            </div>
+           </section>
+           <!-- About Overview Section 🥳🥳-->
 
      <!--🥳🥳 Company Story🥳🥳 -->
     <section class="company-story">
@@ -600,87 +786,14 @@
                 </div>
             </div>
         </div>
+        <div class="about-cta" style="margin-top: 1rem !important; ">
+                    <a href="about.html" class="learn-more-btna">
+                        <span>Learn More</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
     </section>
     
-<!-- Services 🥳🥳-->
-    <section class="services-section" id="services">
-        <div class="services-container">
-            <div class="services-header">
-                <h2 class="section-title" style="
-                   font-size: 2.5rem;
-            font-weight: 500;
-            margin-bottom: 1.5rem;
-            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            letter-spacing: 1.5px;">Our Core Services</h2>
-                <p class="section-subtitle">Comprehensive cybersecurity solutions powered by advanced AI and delivered by industry experts.</p>
-            </div>
-            
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-search-plus"></i>
-                    </div>
-                    <h3 class="service-title">Threat Detection & Analysis</h3>
-                    <p class="service-description">Advanced AI-powered threat detection system that identifies and analyzes potential security risks in real-time, providing comprehensive protection against known and unknown threats.</p>
-                    <ul class="service-features">
-                        <li>Real-time threat monitoring</li>
-                        <li>Behavioral analysis algorithms</li>
-                        <li>Zero-day threat detection</li>
-                        <li>Automated incident response</li>
-                        <li>Threat intelligence integration</li>
-                    </ul>
-         <!--          <a href="#" class="service-btn">Learn More</a> -->
-                </div>
-                
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-shield-virus"></i>
-                    </div>
-                    <h3 class="service-title">Incident Response & Recovery</h3>
-                    <p class="service-description">Rapid incident response services with expert-led investigation, containment, and recovery procedures to minimize damage and restore operations quickly.</p>
-                    <ul class="service-features">
-                        <li>24/7 emergency response</li>
-                        <li>Forensic investigation</li>
-                        <li>Damage assessment</li>
-                        <li>System recovery planning</li>
-                        <li>Post-incident analysis</li>
-                    </ul>
-         <!--          <a href="#" class="service-btn">Learn More</a> -->
-                </div>
-                
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-user-shield"></i>
-                    </div>
-                    <h3 class="service-title">Security Consulting & Audits</h3>
-                    <p class="service-description">Comprehensive security assessments and strategic consulting to identify vulnerabilities, ensure compliance, and strengthen your overall security posture.</p>
-                    <ul class="service-features">
-                        <li>Vulnerability assessments</li>
-                        <li>Penetration testing</li>
-                        <li>Compliance auditing</li>
-                        <li>Security policy development</li>
-                        <li>Risk management strategies</li>
-                    </ul>
-        <!--          <a href="#" class="service-btn">Learn More</a> -->
-                </div>
-            </div>
-            
-            <a href="services.html" class="more-services-btn">
-                <span>View All Services</span>
-                <i class="fas fa-arrow-right" style="margin-left: 0.5rem;"></i>
-            </a>
-        </div>
-        
-        <div class="floating-elements">
-            <div class="floating-element" style="left: 15%; animation-delay: 1s;"><i class="fas fa-code"></i></div>
-            <div class="floating-element" style="left: 25%; animation-delay: 3s;"><i class="fas fa-server"></i></div>
-            <div class="floating-element" style="left: 35%; animation-delay: 5s;"><i class="fas fa-database"></i></div>
-            <div class="floating-element" style="left: 45%; animation-delay: 7s;"><i class="fas fa-wifi"></i></div>
-            </div>
-           </section>
 <!-- cta 🥳🥳-->
   <section class="cta-section">
         <div class="tech-grid"></div>
@@ -732,7 +845,7 @@
     </section>
 
 <!-- 🥳🥳🥳 -->
-  <!-- Footer -->
+    <!-- Footer -->
     <footer class="footer">
         <div class="footer-container">
             <div class="footer-grid">
@@ -759,8 +872,25 @@
                     <p>📧 info@cybex.com</p>
                     <p>📞 +254 (717) 378-758</p>
                     <p>🏢 123 Tech Solutions<br>
-Woodvale Grove, Westlands
+Woodvale Grove, Westlands<br>
 Nairobi, Kenya</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Follow Us</h3>
+                    <div class="social-media-links" style="display: flex; flex-direction: row; gap: 1rem; align-items: center;">
+                        <a href="https://twitter.com/cybex" class="social-icon" style="background-color: aqua; border-radius: 50%; padding: 0.5rem; text-decoration: none; color: black;" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="https://linkedin.com/company/cybex" class="social-icon" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="https://facebook.com/cybex" class="social-icon" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://instagram.com/cybex" class="social-icon" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
                 </div>
             </div>
             <div class="footer-bottom">
