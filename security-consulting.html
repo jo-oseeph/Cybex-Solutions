@@ -11,7 +11,697 @@
 
     <link rel="stylesheet" href="airs.css">
     <style>
-     /* Footer */
+          :root {
+            --primary-color: #00f7ff;
+            --secondary-color: #0066ff;
+            --accent-color: #9500ff;
+            --dark-bg: #050a18;
+            --text-color: #e0e0ff;
+            --light-text: #ffffff;
+            --card-bg: rgba(15, 20, 40, 0.8);
+            --section-bg: rgba(10, 15, 30, 0.5);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Orbitron', sans-serif;
+        }
+        
+        body {
+            background-color: var(--dark-bg);
+            color: var(--text-color);
+            overflow-x: hidden;
+            line-height: 1.6;
+            padding-top: 80px; /* Space for fixed navbar that user already has */
+        }
+        
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: rgba(0, 0, 0, 0.2);
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(var(--primary-color), var(--secondary-color));
+            border-radius: 4px;
+        }
+        
+        /* Hero Section */
+        .service-hero {
+            padding: 80px 2rem 60px;
+            background: linear-gradient(135deg, rgba(0, 102, 255, 0.1), rgba(149, 0, 255, 0.05));
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .service-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at top right, rgba(0, 247, 255, 0.1), transparent 50%);
+            animation: pulseGlow 4s ease-in-out infinite;
+        }
+        
+        .hero-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero-content {
+            animation: slideInLeft 1s ease;
+        }
+        
+        .service-badge {
+            display: inline-block;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            color: var(--dark-bg);
+            padding: 0.5rem 1.5rem;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+        }
+        
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(90deg, var(--primary-color), var(--light-text));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            line-height: 1.2;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.3rem;
+            color: rgba(224, 224, 255, 0.8);
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+        
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .stat-item {
+            text-align: center;
+            padding: 1rem;
+            background: var(--card-bg);
+            border: 1px solid rgba(0, 247, 255, 0.2);
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: block;
+        }
+        
+        .stat-label {
+            font-size: 0.9rem;
+            color: rgba(224, 224, 255, 0.7);
+            margin-top: 0.5rem;
+        }
+        
+        .hero-visual {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            animation: slideInRight 1s ease;
+        }
+        
+        .hero-image-placeholder {
+            width: 100%;
+            max-width: 500px;
+            height: 400px;
+            background: var(--card-bg);
+            border: 2px solid rgba(0, 247, 255, 0.3);
+            border-radius: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+        }
+        
+        .hero-image-placeholder::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent, rgba(0, 247, 255, 0.1), transparent);
+            transform: translateX(-100%);
+            animation: shimmer 3s infinite;
+        }
+        
+        .placeholder-icon {
+            font-size: 4rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        
+        .placeholder-text {
+            color: rgba(224, 224, 255, 0.6);
+            text-align: center;
+            font-size: 0.9rem;
+        }
+        
+        /* Overview Section */
+        .overview-section {
+            padding: 80px 2rem;
+            background: var(--section-bg);
+        }
+        
+        .section-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 3rem;
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animation: fadeInDown 1s ease;
+        }
+        
+        .overview-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            margin-bottom: 4rem;
+        }
+        
+        .overview-content {
+            animation: fadeInLeft 1s ease;
+        }
+        
+        .overview-content h3 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--light-text);
+            margin-bottom: 1.5rem;
+        }
+        
+        .overview-content p {
+            font-size: 1.1rem;
+            color: rgba(224, 224, 255, 0.8);
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+        
+        .key-benefits {
+            list-style: none;
+            margin-top: 2rem;
+        }
+        
+        .key-benefits li {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+            font-size: 1rem;
+            color: rgba(224, 224, 255, 0.9);
+        }
+        
+        .key-benefits li::before {
+            content: '✓';
+            color: var(--primary-color);
+            font-weight: bold;
+            width: 20px;
+            margin-right: 1rem;
+        }
+        
+        .overview-image {
+            animation: fadeInRight 1s ease;
+        }
+        
+        .image-placeholder {
+            width: 100%;
+            height: 350px;
+            background: var(--card-bg);
+            border: 2px solid rgba(0, 247, 255, 0.3);
+            border-radius: 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+        }
+        
+        .image-placeholder::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent, rgba(0, 247, 255, 0.1), transparent);
+            transform: translateX(-100%);
+            animation: shimmer 3s infinite;
+        }
+        
+        /* Services Detail Section */
+        .services-detail {
+            padding: 80px 2rem;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .service-detail-card {
+            background: var(--card-bg);
+            border: 1px solid rgba(0, 247, 255, 0.2);
+            border-radius: 20px;
+            padding: 2.5rem;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            animation: fadeInUp 1s ease;
+        }
+        
+        .service-detail-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 247, 255, 0.2);
+            border-color: rgba(0, 247, 255, 0.4);
+        }
+        
+        .service-detail-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color), var(--accent-color));
+        }
+        
+        .service-icon {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            animation: pulse 2s infinite;
+        }
+        
+        .service-detail-card h3 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--light-text);
+            margin-bottom: 1.5rem;
+        }
+        
+        .service-detail-card p {
+            color: rgba(224, 224, 255, 0.8);
+            margin-bottom: 2rem;
+            line-height: 1.7;
+        }
+        
+        .service-features {
+            list-style: none;
+        }
+        
+        .service-features li {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.8rem;
+            font-size: 0.95rem;
+            color: rgba(224, 224, 255, 0.9);
+        }
+        
+        .service-features li::before {
+            content: '▶';
+            color: var(--primary-color);
+            margin-right: 1rem;
+            font-size: 0.8rem;
+        }
+        
+        /* Process Section */
+        .process-section {
+            padding: 80px 2rem;
+            background: var(--section-bg);
+        }
+        
+        .process-timeline {
+            max-width: 1000px;
+            margin: 3rem auto 0;
+            position: relative;
+        }
+        
+        .process-timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(180deg, var(--primary-color), var(--secondary-color), var(--accent-color));
+            transform: translateX(-50%);
+        }
+        
+        .process-step {
+            display: flex;
+            margin-bottom: 4rem;
+            position: relative;
+            animation: fadeInUp 1s ease;
+        }
+        
+        .process-step:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+        
+        .process-step:nth-child(even) .process-content {
+            text-align: right;
+        }
+        
+        .process-content {
+            flex: 1;
+            padding: 0 3rem;
+        }
+        
+        .process-number {
+            position: absolute;
+            left: 50%;
+            top: 0;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--dark-bg);
+            z-index: 2;
+        }
+        
+        .process-card {
+            background: var(--card-bg);
+            border: 1px solid rgba(0, 247, 255, 0.2);
+            border-radius: 15px;
+            padding: 2rem;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+        
+        .process-card:hover {
+            border-color: rgba(0, 247, 255, 0.4);
+            box-shadow: 0 10px 30px rgba(0, 247, 255, 0.1);
+        }
+        
+        .process-card h4 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--light-text);
+            margin-bottom: 1rem;
+        }
+        
+        .process-card p {
+            color: rgba(224, 224, 255, 0.8);
+            line-height: 1.6;
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            padding: 80px 2rem;
+            background: linear-gradient(135deg, rgba(0, 102, 255, 0.1), rgba(149, 0, 255, 0.1));
+            text-align: center;
+        }
+        
+        .cta-content {
+            max-width: 800px;
+            margin: 0 auto;
+            animation: fadeInUp 1s ease;
+        }
+        
+        .cta-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(90deg, var(--primary-color), var(--light-text));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .cta-text {
+            font-size: 1.2rem;
+            color: rgba(224, 224, 255, 0.8);
+            margin-bottom: 2.5rem;
+            line-height: 1.6;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .primary-btn {
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            color: var(--dark-bg);
+            border: none;
+            padding: 1rem 2.5rem;
+            border-radius: 30px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            box-shadow: 0 0 20px rgba(0, 247, 255, 0.3);
+        }
+        
+        .primary-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 0 30px rgba(0, 247, 255, 0.5);
+        }
+        
+        .secondary-btn {
+            background: transparent;
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+            padding: 1rem 2.5rem;
+            border-radius: 30px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .secondary-btn:hover {
+            background: rgba(0, 247, 255, 0.1);
+            box-shadow: 0 0 20px rgba(0, 247, 255, 0.3);
+        }
+        
+        /* Animations */
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+        }
+        
+        @keyframes pulseGlow {
+            0%, 100% {
+                opacity: 0.5;
+            }
+            50% {
+                opacity: 1;
+            }
+        }
+        
+        @keyframes shimmer {
+            0% {
+                transform: translateX(-100%);
+            }
+            100% {
+                transform: translateX(100%);
+            }
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .hero-container {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+                text-align: center;
+            }
+            
+            .hero-title {
+                font-size: 3rem;
+            }
+            
+            .overview-grid {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .hero-stats {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .process-timeline::before {
+                left: 30px;
+            }
+            
+            .process-step {
+                flex-direction: column !important;
+                margin-left: 60px;
+            }
+            
+            .process-step:nth-child(even) .process-content {
+                text-align: left;
+            }
+            
+            .process-number {
+                left: 30px;
+            }
+            
+            .process-content {
+                padding: 0;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .service-hero {
+                padding: 60px 1rem 40px;
+            }
+            
+            .overview-section, .services-detail, .process-section, .cta-section {
+                padding: 60px 1rem;
+            }
+            
+            .service-detail-card {
+                padding: 2rem;
+            }
+        }
+
+        /* Footer */
         .footer {
             background: linear-gradient(135deg, rgba(5, 10, 24, 0.95), rgba(0, 102, 255, 0.05));
             padding: 60px 2rem 30px;
@@ -277,13 +967,208 @@
     </nav>
     <!--  🥳🥳🥳 -->
 
+    <!-- Hero Section -->
+      <!-- Service Hero Section -->
+    <section class="service-hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <span class="service-badge">Premium Service</span>
+                <h1 class="hero-title">Security Consulting & Strategy</h1>
+                <p class="hero-subtitle">Transform your organization's security posture with expert strategic guidance, comprehensive risk assessments, and tailored security frameworks designed to protect your most valuable digital assets.</p>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">500+</span>
+                        <span class="stat-label">Successful Projects</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">98%</span>
+                        <span class="stat-label">Client Satisfaction</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">24/7</span>
+                        <span class="stat-label">Expert Support</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="hero-image-placeholder">
+                    <i class="fas fa-chart-line placeholder-icon"></i>
+                    <p class="placeholder-text">Strategic Security Consulting<br>Visualization Dashboard</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Overview Section -->
+    <section class="overview-section">
+        <div class="section-container">
+            <h2 class="section-title"> Security Strategy</h2>
+            <div class="overview-grid">
+                <div class="overview-content">
+                    <h3>Strategic Security Excellence</h3>
+                    <p>Our Security Consulting & Strategy service provides organizations with comprehensive security guidance that aligns with business objectives while addressing current and emerging cyber threats.</p>
+                    <p>We work closely with your leadership team to develop robust security frameworks that not only protect your assets but also enable business growth and digital transformation initiatives.</p>
+                    <ul class="key-benefits">
+                        <li>Tailored security strategies aligned with business goals</li>
+                        <li>Expert guidance from certified security professionals</li>
+                        <li>Comprehensive risk assessment and mitigation planning</li>
+                        <li>Regulatory compliance and governance frameworks</li>
+                        <li>Continuous security posture improvement</li>
+                    </ul>
+                </div>
+                <div class="overview-image">
+                    <div class="image-placeholder">
+                        <i class="fas fa-shield-alt placeholder-icon"></i>
+                        <p class="placeholder-text">Security Framework<br>Architecture Diagram</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Detail Section -->
+    <section class="services-detail">
+        <div class="section-container">
+            <h2 class="section-title">Services Involved</h2>
+            <div class="services-grid">
+                <div class="service-detail-card">
+                    <div class="service-icon">
+                        <i class="fas fa-file-contract"></i>
+                    </div>
+                    <h3>Security Policy Development</h3>
+                    <p>Comprehensive security policy creation that establishes clear guidelines, procedures, and standards for your organization's security operations and employee behavior.</p>
+                    <ul class="service-features">
+                        <li>Information Security Policy frameworks</li>
+                        <li>Access Control and Identity Management policies</li>
+                        <li>Data Protection and Privacy policies</li>
+                        <li>Incident Response and Business Continuity policies</li>
+                        <li>Acceptable Use and BYOD policies</li>
+                        <li>Regular policy reviews and updates</li>
+                        <li>Staff training and awareness programs</li>
+                    </ul>
+                </div>
+
+                <div class="service-detail-card">
+                    <div class="service-icon">
+                        <i class="fas fa-exclamation-triangle"></i>
+                    </div>
+                    <h3>Risk Management Strategies</h3>
+                    <p>Systematic identification, assessment, and mitigation of security risks to minimize potential impact on your business operations and reputation.</p>
+                    <ul class="service-features">
+                        <li>Comprehensive risk assessments and analysis</li>
+                        <li>Threat modeling and vulnerability identification</li>
+                        <li>Risk prioritization and impact analysis</li>
+                        <li>Mitigation strategy development and implementation</li>
+                        <li>Risk monitoring and continuous evaluation</li>
+                        <li>Business impact assessments</li>
+                        <li>Insurance and transfer risk strategies</li>
+                    </ul>
+                </div>
+
+                <div class="service-detail-card">
+                    <div class="service-icon">
+                        <i class="fas fa-sitemap"></i>
+                    </div>
+                    <h3>Architecture Reviews</h3>
+                    <p>In-depth evaluation of your existing security architecture to identify gaps, optimize performance, and ensure alignment with industry best practices.</p>
+                    <ul class="service-features">
+                        <li>Network security architecture assessment</li>
+                        <li>Application security design reviews</li>
+                        <li>Cloud infrastructure security evaluation</li>
+                        <li>Zero-trust architecture implementation</li>
+                        <li>Identity and Access Management (IAM) reviews</li>
+                        <li>Security controls effectiveness analysis</li>
+                        <li>Architecture optimization recommendations</li>
+                    </ul>
+                </div>
+
+                <!-- <div class="service-detail-card">
+                    <div class="service-icon">
+                        <i class="fas fa-route"></i>
+                    </div>
+                    <h3>Security Roadmap Planning</h3>
+                    <p>Strategic planning that creates a clear path for security improvements, technology investments, and organizational changes over time.</p>
+                    <ul class="service-features">
+                        <li>Long-term security strategy development</li>
+                        <li>Technology roadmap and investment planning</li>
+                        <li>Phased implementation timelines</li>
+                        <li>Budget planning and resource allocation</li>
+                        <li>Milestone tracking and progress monitoring</li>
+                        <li>Stakeholder alignment and communication</li>
+                        <li>Continuous roadmap refinement and updates</li>
+                    </ul>
+                </div> -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <!-- <section class="process-section">
+        <div class="section-container">
+            <h2 class="section-title">Our Consultation Process</h2>
+            <div class="process-timeline">
+                <div class="process-step">
+                    <div class="process-number">1</div>
+                    <div class="process-content">
+                        <div class="process-card">
+                            <h4>Initial Assessment & Discovery</h4>
+                            <p>We begin with a comprehensive assessment of your current security posture, business objectives, and regulatory requirements. This includes stakeholder interviews, documentation reviews, and infrastructure analysis to understand your unique challenges and goals.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="process-step">
+                    <div class="process-number">2</div>
+                    <div class="process-content">
+                        <div class="process-card">
+                            <h4>Risk Analysis & Gap Identification</h4>
+                            <p>Our experts conduct detailed risk assessments, vulnerability analyses, and compliance gap identification. We map your current security controls against industry frameworks and identify areas for improvement and potential security weaknesses.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="process-step">
+                    <div class="process-number">3</div>
+                    <div class="process-content">
+                        <div class="process-card">
+                            <h4>Strategy Development & Planning</h4>
+                            <p>Based on our findings, we develop a comprehensive security strategy tailored to your organization. This includes policy frameworks, architectural recommendations, technology solutions, and detailed implementation roadmaps with clear timelines and budgets.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="process-step">
+                    <div class="process-number">4</div>
+                    <div class="process-content">
+                        <div class="process-card">
+                            <h4>Implementation Support & Monitoring</h4>
+                            <p>We provide ongoing support during implementation, including project management, technical guidance, and progress monitoring. Our team ensures successful deployment of security initiatives and provides continuous optimization recommendations.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> -->
+
+    <!-- CTA Section -->
+     <section class="cta-section">
+        <div class="cta-content">
+            <h2 class="cta-title">Ready to Strengthen Your Security Strategy?</h2>
+            <p class="cta-text">Transform your organization's security posture with expert guidance from our certified security professionals. Let's work together to build a comprehensive security framework that protects your assets and enables business growth.</p>
+            <div class="cta-buttons">
+                <a href="#contact" class="primary-btn">Schedule Consultation</a>
+                <a href="#portfolio" class="secondary-btn">View Case Studies</a>
+            </div>
+        </div>
+    </section>
+
 <!-- Footer -->
     <footer class="footer">
         <div class="footer-container">
             <div class="footer-grid">
                 <div class="footer-section">
                     <h3>CYBEX</h3>
-                    <p>Advanced cybersecurity solutions powered by AI, protecting organizations worldwide with cutting-edge threat detection and response capabilities.</p>
+                    <p style="font-family: 'Orbitron', sans-serif;">Advanced cybersecurity solutions powered by AI, protecting organizations worldwide with cutting-edge threat detection and response capabilities.</p>
                 </div>
                 <div class="footer-section">
                     <h3>Solutions</h3>
@@ -299,7 +1184,7 @@
                     <a href="careers.html">Careers</a>
                     <a href="#">Certifications</a>
                 </div>
-                <div class="footer-section">
+                <div class="footer-section" style="font-family: 'Orbitron', sans-serif;">
                     <h3>Contact</h3>
                     <p>📧 info@cybex.com</p>
                     <p>📞 +254 (717) 378-758</p>
