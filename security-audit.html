@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="airs.css">
     <style>
-        :root {
+         :root {
             --primary-color: #00f7ff;
             --secondary-color: #0066ff;
             --accent-color: #9500ff;
@@ -16,7 +16,9 @@
             --text-color: #e0e0ff;
             --light-text: #ffffff;
             --card-bg: rgba(15, 20, 40, 0.8);
-            --gradient-bg: linear-gradient(135deg, rgba(0, 247, 255, 0.1), rgba(0, 102, 255, 0.1), rgba(149, 0, 255, 0.1));
+            --success-color: #00ff88;
+            --warning-color: #ffaa00;
+            --danger-color: #ff4444;
         }
         
         * {
@@ -49,14 +51,18 @@
         
         /* Hero Section */
         .hero {
-            position: relative;
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 0 2rem;
+            text-align: center;
+            padding: 2rem;
+            position: relative;
             overflow: hidden;
-            background: var(--gradient-bg);
+            background: linear-gradient(135deg, 
+                rgba(0, 102, 255, 0.15) 0%, 
+                rgba(149, 0, 255, 0.15) 50%, 
+                rgba(0, 247, 255, 0.15) 100%);
         }
         
         .hero::before {
@@ -67,208 +73,118 @@
             width: 100%;
             height: 100%;
             background: 
-                radial-gradient(circle at 20% 80%, rgba(0, 247, 255, 0.15), transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(0, 102, 255, 0.15), transparent 50%),
-                radial-gradient(circle at 40% 40%, rgba(149, 0, 255, 0.1), transparent 50%);
-            animation: gradientFloat 15s ease-in-out infinite;
-        }
-        
-        .hero::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: 
-                linear-gradient(45deg, transparent 48%, rgba(0, 247, 255, 0.03) 49%, rgba(0, 247, 255, 0.03) 51%, transparent 52%),
-                linear-gradient(-45deg, transparent 48%, rgba(0, 102, 255, 0.03) 49%, rgba(0, 102, 255, 0.03) 51%, transparent 52%);
-            background-size: 60px 60px;
-            animation: gridMove 20s linear infinite;
-        }
-        
-        .hero-container {
-            max-width: 1400px;
-            width: 100%;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-            position: relative;
-            z-index: 10;
+                radial-gradient(circle at 20% 30%, rgba(0, 247, 255, 0.1), transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(149, 0, 255, 0.1), transparent 50%),
+                radial-gradient(circle at 50% 50%, rgba(0, 102, 255, 0.05), transparent 70%);
+            animation: gradientShift 10s ease-in-out infinite;
         }
         
         .hero-content {
-            animation: slideInLeft 1s ease;
+            position: relative;
+            z-index: 10;
+            max-width: 900px;
+            animation: fadeInUp 1s ease;
         }
         
-        .hero-badge {
-            display: inline-block;
-            background: rgba(0, 247, 255, 0.1);
-            border: 1px solid rgba(0, 247, 255, 0.3);
-            border-radius: 25px;
-            padding: 0.5rem 1.5rem;
-            font-size: 0.9rem;
-            font-weight: 600;
+        .hero-icon {
+            font-size: 5rem;
             color: var(--primary-color);
-            margin-bottom: 1.5rem;
-            letter-spacing: 1px;
+            margin-bottom: 2rem;
+            animation: pulse 2s infinite;
         }
         
         .hero-title {
             font-size: 3.5rem;
             font-weight: 900;
-            line-height: 1.2;
             margin-bottom: 1.5rem;
             background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
-            text-transform: uppercase;
             letter-spacing: 2px;
+            text-transform: uppercase;
+            line-height: 1.2;
         }
         
         .hero-subtitle {
             font-size: 1.3rem;
             margin-bottom: 2rem;
-            color: rgba(224, 224, 255, 0.9);
-            line-height: 1.7;
+            color: rgba(224, 224, 255, 0.8);
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
         }
         
         .hero-stats {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1.5rem;
-            margin-top: 2rem;
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-top: 3rem;
+            flex-wrap: wrap;
         }
         
         .stat-item {
             text-align: center;
-            padding: 1rem;
-            background: rgba(0, 247, 255, 0.05);
+            padding: 1.5rem;
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
             border: 1px solid rgba(0, 247, 255, 0.2);
             border-radius: 15px;
-            backdrop-filter: blur(10px);
+            min-width: 180px;
+            transition: all 0.3s ease;
+        }
+        
+        .stat-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 247, 255, 0.2);
         }
         
         .stat-number {
-            font-size: 2rem;
+            font-size: 2.5rem;
             font-weight: 700;
             color: var(--primary-color);
             display: block;
+            margin-bottom: 0.5rem;
         }
         
         .stat-label {
             font-size: 0.9rem;
             color: rgba(224, 224, 255, 0.7);
-            margin-top: 0.5rem;
         }
         
-        .hero-visual {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            position: relative;
-            animation: slideInRight 1s ease;
-        }
-        
-        .threat-scanner {
-            width: 400px;
-            height: 400px;
-            border-radius: 50%;
-            border: 3px solid rgba(0, 247, 255, 0.3);
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: radial-gradient(circle, rgba(0, 247, 255, 0.05), transparent);
-            animation: rotate 20s linear infinite;
-        }
-        
-        .scanner-ring {
-            position: absolute;
-            border-radius: 50%;
-            border: 2px solid transparent;
-        }
-        
-        .scanner-ring:nth-child(1) {
-            width: 300px;
-            height: 300px;
-            border-top-color: var(--primary-color);
-            animation: rotate 8s linear infinite;
-        }
-        
-        .scanner-ring:nth-child(2) {
-            width: 200px;
-            height: 200px;
-            border-right-color: var(--secondary-color);
-            animation: rotate 12s linear reverse infinite;
-        }
-        
-        .scanner-ring:nth-child(3) {
-            width: 100px;
-            height: 100px;
-            border-bottom-color: var(--accent-color);
-            animation: rotate 6s linear infinite;
-        }
-        
-        .scanner-center {
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
-            color: var(--dark-bg);
-            animation: pulse 2s ease-in-out infinite;
-        }
-        
-        .threat-indicators {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-        }
-        
-        .threat-dot {
-            position: absolute;
-            width: 8px;
-            height: 8px;
-            background: var(--accent-color);
-            border-radius: 50%;
-            animation: threatPulse 3s ease-in-out infinite;
-        }
-        
-        .threat-dot:nth-child(1) { top: 10%; left: 30%; animation-delay: 0s; }
-        .threat-dot:nth-child(2) { top: 20%; right: 25%; animation-delay: 0.5s; }
-        .threat-dot:nth-child(3) { bottom: 30%; left: 20%; animation-delay: 1s; }
-        .threat-dot:nth-child(4) { bottom: 15%; right: 35%; animation-delay: 1.5s; }
-        .threat-dot:nth-child(5) { top: 50%; left: 10%; animation-delay: 2s; }
-        
-        /* Overview Section */
-        .overview-section {
-            padding: 100px 2rem;
-            background: linear-gradient(135deg, rgba(0, 102, 255, 0.03), rgba(149, 0, 255, 0.03));
-        }
-        
-        .overview-container {
+        /* Main Content */
+        .main-content {
+            padding: 80px 2rem;
             max-width: 1400px;
             margin: 0 auto;
+        }
+        
+        .section {
+            margin-bottom: 80px;
         }
         
         .section-title {
             font-size: 2.5rem;
             font-weight: 700;
-            text-align: center;
-            margin-bottom: 3rem;
+            margin-bottom: 2rem;
             background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
-            animation: fadeInDown 1s ease;
+            text-align: center;
+            animation: slideInDown 1s ease;
         }
         
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: rgba(224, 224, 255, 0.8);
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 3rem;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+        
+        /* Service Overview */
         .overview-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -277,8 +193,12 @@
             margin-bottom: 4rem;
         }
         
+        .overview-content {
+            animation: slideInLeft 1s ease;
+        }
+        
         .overview-content h3 {
-            font-size: 1.8rem;
+            font-size: 2rem;
             font-weight: 700;
             margin-bottom: 1.5rem;
             color: var(--light-text);
@@ -287,98 +207,69 @@
         .overview-content p {
             font-size: 1.1rem;
             margin-bottom: 1.5rem;
-            color: rgba(224, 224, 255, 0.8);
-            line-height: 1.7;
-        }
-        
-        .key-benefits {
-            list-style: none;
-            margin-top: 1.5rem;
-        }
-        
-        .key-benefits li {
-            display: flex;
-            align-items: center;
-            margin-bottom: 1rem;
-            font-size: 1rem;
             color: rgba(224, 224, 255, 0.9);
         }
         
-        .key-benefits li::before {
-            content: '✓';
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            color: var(--dark-bg);
-            width: 20px;
-            height: 20px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 1rem;
-            font-weight: bold;
-            font-size: 0.8rem;
-        }
-        
-        .overview-image {
-            background: var(--card-bg);
-            border: 1px solid rgba(0, 247, 255, 0.2);
-            border-radius: 20px;
-            padding: 2rem;
-            text-align: center;
-            backdrop-filter: blur(10px);
-            box-shadow: 0 10px 30px rgba(0, 247, 255, 0.1);
+        .overview-visual {
+            position: relative;
+            animation: slideInRight 1s ease;
         }
         
         .image-placeholder {
             width: 100%;
             height: 300px;
-            background: linear-gradient(135deg, rgba(0, 247, 255, 0.1), rgba(0, 102, 255, 0.1));
+            background: linear-gradient(135deg, var(--card-bg), rgba(0, 247, 255, 0.1));
             border: 2px dashed rgba(0, 247, 255, 0.3);
             border-radius: 15px;
             display: flex;
             align-items: center;
             justify-content: center;
+            flex-direction: column;
+            gap: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .image-placeholder:hover {
+            border-color: var(--primary-color);
+            box-shadow: 0 10px 30px rgba(0, 247, 255, 0.2);
+        }
+        
+        .image-placeholder i {
+            font-size: 3rem;
             color: var(--primary-color);
-            font-size: 1rem;
-            font-weight: 600;
         }
         
-        /* Features Section */
-        .features-section {
-            padding: 100px 2rem;
+        .image-placeholder span {
+            color: rgba(224, 224, 255, 0.7);
+            font-size: 1.1rem;
         }
         
-        .features-container {
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-        
-        .features-grid {
+        /* Services Grid */
+        .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
             margin-top: 3rem;
         }
         
-        .feature-card {
+        .service-detail-card {
             background: var(--card-bg);
+            backdrop-filter: blur(10px);
             border: 1px solid rgba(0, 247, 255, 0.2);
             border-radius: 20px;
             padding: 2.5rem;
-            backdrop-filter: blur(10px);
-            box-shadow: 0 10px 30px rgba(0, 247, 255, 0.1);
-            transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
+            transition: all 0.3s ease;
             animation: fadeInUp 1s ease;
         }
         
-        .feature-card:hover {
+        .service-detail-card:hover {
             transform: translateY(-10px);
             box-shadow: 0 20px 40px rgba(0, 247, 255, 0.2);
         }
         
-        .feature-card::before {
+        .service-detail-card::before {
             content: '';
             position: absolute;
             top: 0;
@@ -388,182 +279,158 @@
             background: linear-gradient(90deg, var(--primary-color), var(--secondary-color), var(--accent-color));
         }
         
-        .feature-icon {
+        .service-detail-icon {
             font-size: 3rem;
             color: var(--primary-color);
             margin-bottom: 1.5rem;
-            animation: float 3s ease-in-out infinite;
+            animation: pulse 2s infinite;
         }
         
-        .feature-card h3 {
+        .service-detail-card h3 {
             font-size: 1.5rem;
             font-weight: 700;
             margin-bottom: 1rem;
             color: var(--light-text);
         }
         
-        .feature-card p {
+        .service-detail-card p {
             color: rgba(224, 224, 255, 0.8);
+            margin-bottom: 1.5rem;
             line-height: 1.7;
+        }
+        
+        .service-features {
+            list-style: none;
             margin-bottom: 1.5rem;
         }
         
-        .feature-details {
-            list-style: none;
-        }
-        
-        .feature-details li {
-            display: flex;
-            align-items: center;
-            margin-bottom: 0.8rem;
-            font-size: 0.9rem;
-            color: rgba(224, 224, 255, 0.7);
-        }
-        
-        .feature-details li::before {
-            content: '•';
-            color: var(--primary-color);
-            font-size: 1.2rem;
-            margin-right: 0.8rem;
-        }
-        
-        /* Technology Section */
-        .technology-section {
-            padding: 100px 2rem;
-            background: var(--gradient-bg);
-        }
-        
-        .technology-container {
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-        
-        .tech-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-            margin-top: 3rem;
-        }
-        
-        .tech-content h3 {
-            font-size: 2rem;
-            font-weight: 700;
-            margin-bottom: 1.5rem;
-            color: var(--light-text);
-        }
-        
-        .tech-list {
-            list-style: none;
-            margin-top: 1.5rem;
-        }
-        
-        .tech-item {
-            background: rgba(0, 247, 255, 0.05);
-            border: 1px solid rgba(0, 247, 255, 0.2);
-            border-radius: 15px;
-            padding: 1.5rem;
-            margin-bottom: 1rem;
-            backdrop-filter: blur(10px);
-            transition: all 0.3s ease;
-        }
-        
-        .tech-item:hover {
-            background: rgba(0, 247, 255, 0.1);
-            transform: translateX(10px);
-        }
-        
-        .tech-item h4 {
-            color: var(--primary-color);
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-        }
-        
-        .tech-item p {
+        .service-features li {
             color: rgba(224, 224, 255, 0.8);
-            font-size: 0.9rem;
+            margin-bottom: 0.8rem;
+            padding-left: 1.5rem;
+            position: relative;
         }
         
-        /* Workflow Section */
-        .workflow-section {
-            padding: 100px 2rem;
+        .service-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--success-color);
+            font-weight: bold;
         }
         
-        .workflow-container {
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-        
-        .workflow-steps {
+        /* Process Section */
+        .process-steps {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 2rem;
             margin-top: 3rem;
         }
         
-        .step-card {
+        .process-step {
             background: var(--card-bg);
+            backdrop-filter: blur(10px);
             border: 1px solid rgba(0, 247, 255, 0.2);
-            border-radius: 20px;
+            border-radius: 15px;
             padding: 2rem;
             text-align: center;
-            backdrop-filter: blur(10px);
-            box-shadow: 0 10px 30px rgba(0, 247, 255, 0.1);
             position: relative;
             transition: all 0.3s ease;
             animation: fadeInUp 1s ease;
         }
         
-        .step-card:hover {
+        .process-step:hover {
             transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 247, 255, 0.2);
         }
         
         .step-number {
-            position: absolute;
-            top: -15px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 30px;
-            height: 30px;
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            width: 50px;
+            height: 50px;
             border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: var(--dark-bg);
+            font-size: 1.5rem;
+            font-weight: 700;
             display: flex;
             align-items: center;
             justify-content: center;
+            margin: 0 auto 1.5rem;
+        }
+        
+        .process-step h4 {
+            font-size: 1.3rem;
             font-weight: 700;
-            color: var(--dark-bg);
-            font-size: 0.9rem;
-        }
-        
-        .step-icon {
-            font-size: 2.5rem;
-            color: var(--primary-color);
-            margin: 1rem 0;
-        }
-        
-        .step-card h4 {
-            font-size: 1.2rem;
-            font-weight: 600;
             margin-bottom: 1rem;
             color: var(--light-text);
         }
         
-        .step-card p {
+        .process-step p {
             color: rgba(224, 224, 255, 0.8);
-            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+        
+        /* Benefits Section */
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .benefit-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(0, 247, 255, 0.2);
+            border-radius: 15px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            animation: fadeInUp 1s ease;
+        }
+        
+        .benefit-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 247, 255, 0.2);
+        }
+        
+        .benefit-icon {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+        }
+        
+        .benefit-card h4 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--light-text);
+        }
+        
+        .benefit-card p {
+            color: rgba(224, 224, 255, 0.8);
             line-height: 1.6;
         }
         
         /* CTA Section */
         .cta-section {
-            padding: 100px 2rem;
-            background: linear-gradient(135deg, rgba(0, 247, 255, 0.1), rgba(0, 102, 255, 0.1));
+            background: linear-gradient(135deg, rgba(0, 102, 255, 0.1), rgba(149, 0, 255, 0.1));
+            border-radius: 20px;
+            padding: 4rem 2rem;
             text-align: center;
+            margin-top: 4rem;
+            position: relative;
+            overflow: hidden;
         }
         
-        .cta-container {
-            max-width: 800px;
-            margin: 0 auto;
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent, rgba(0, 247, 255, 0.05), transparent);
+            animation: shimmer 3s ease-in-out infinite;
         }
         
         .cta-title {
@@ -576,16 +443,18 @@
             color: transparent;
         }
         
-        .cta-text {
+        .cta-description {
             font-size: 1.2rem;
-            margin-bottom: 2.5rem;
             color: rgba(224, 224, 255, 0.8);
-            line-height: 1.7;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
         }
         
         .cta-buttons {
             display: flex;
-            gap: 1rem;
+            gap: 1.5rem;
             justify-content: center;
             flex-wrap: wrap;
         }
@@ -603,7 +472,7 @@
             box-shadow: 0 0 15px rgba(0, 247, 255, 0.3);
             text-decoration: none;
             display: inline-block;
-            font-size: 1rem;
+            font-size: 1.1rem;
         }
         
         .primary-btn:hover {
@@ -623,7 +492,7 @@
             transition: all 0.3s ease;
             text-decoration: none;
             display: inline-block;
-            font-size: 1rem;
+            font-size: 1.1rem;
         }
         
         .secondary-btn:hover {
@@ -632,93 +501,105 @@
         }
         
         /* Animations */
-        @keyframes gradientFloat {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            33% { transform: translateY(-10px) rotate(1deg); }
-            66% { transform: translateY(5px) rotate(-1deg); }
-        }
-        
-        @keyframes gridMove {
-            0% { transform: translate(0, 0); }
-            100% { transform: translate(60px, 60px); }
-        }
-        
-        @keyframes rotate {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
-        
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.1); }
-        }
-        
-        @keyframes threatPulse {
-            0%, 100% { opacity: 0.3; transform: scale(1); }
-            50% { opacity: 1; transform: scale(1.5); }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
         
         @keyframes slideInLeft {
-            from { opacity: 0; transform: translateX(-50px); }
-            to { opacity: 1; transform: translateX(0); }
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
         }
         
         @keyframes slideInRight {
-            from { opacity: 0; transform: translateX(50px); }
-            to { opacity: 1; transform: translateX(0); }
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
         }
         
-        @keyframes fadeInDown {
-            from { opacity: 0; transform: translateY(-30px); }
-            to { opacity: 1; transform: translateY(0); }
+        @keyframes slideInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
         
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
         }
         
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
+        @keyframes gradientShift {
+            0%, 100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.7;
+            }
+        }
+        
+        @keyframes shimmer {
+            0% {
+                transform: translateX(-100%);
+            }
+            100% {
+                transform: translateX(100%);
+            }
         }
         
         /* Responsive Design */
-        @media (max-width: 1024px) {
-            .hero-container, .overview-grid, .tech-grid {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-            
+        @media (max-width: 768px) {
             .hero-title {
                 font-size: 2.5rem;
             }
             
-            .threat-scanner {
-                width: 300px;
-                height: 300px;
-            }
-        }
-        
-        @media (max-width: 768px) {
-            .hero, .overview-section, .features-section, 
-            .technology-section, .workflow-section, .cta-section {
-                padding: 60px 1rem;
-            }
-            
-            .hero-title {
-                font-size: 2rem;
-            }
-            
-            .section-title {
-                font-size: 2rem;
+            .hero-subtitle {
+                font-size: 1.1rem;
             }
             
             .hero-stats {
+                gap: 1.5rem;
+            }
+            
+            .overview-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .services-grid {
                 grid-template-columns: 1fr;
             }
             
-            .features-grid, .workflow-steps {
+            .process-steps {
+                grid-template-columns: 1fr;
+            }
+            
+            .benefits-grid {
                 grid-template-columns: 1fr;
             }
             
@@ -727,12 +608,46 @@
                 align-items: center;
             }
             
-            .threat-scanner {
-                width: 250px;
-                height: 250px;
+            .section-title {
+                font-size: 2rem;
             }
         }
         
+        @media (max-width: 480px) {
+            .hero {
+                padding: 1rem;
+            }
+            
+            .hero-title {
+                font-size: 2rem;
+            }
+            
+            .hero-icon {
+                font-size: 4rem;
+            }
+            
+            .stat-item {
+                min-width: 150px;
+                padding: 1rem;
+            }
+            
+            .main-content {
+                padding: 60px 1rem;
+            }
+            
+            .service-detail-card {
+                padding: 2rem;
+            }
+            
+            .cta-section {
+                padding: 3rem 1rem;
+            }
+            
+            .cta-title {
+                font-size: 2rem;
+            }
+        }
+  
         /* Footer */
         .footer {
             background: linear-gradient(135deg, rgba(5, 10, 24, 0.95), rgba(0, 102, 255, 0.05));
@@ -996,124 +911,222 @@
         </ul>
     </nav>
     <!--  🥳🥳🥳 -->
+       <!-- Hero Section -->
     <!-- Hero Section -->
     <section class="hero">
-        <div class="hero-container">
-            <div class="hero-content">
-                <div class="hero-badge">AI-Powered Security</div>
-                <h1 class="hero-title">Threat Detection & Analysis</h1>
-                <p class="hero-subtitle">
-                    Advanced AI-powered threat detection system that identifies, analyzes, and responds to security risks in real-time, providing comprehensive protection against evolving cyber threats and zero-day vulnerabilities.
-                </p>
-                <div class="hero-stats">
-                    <div class="stat-item">
-                        <span class="stat-number">99.9%</span>
-                        <span class="stat-label">Detection Accuracy</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-number">&lt;5ms</span>
-                        <span class="stat-label">Response Time</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-number">24/7</span>
-                        <span class="stat-label">Monitoring</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-number">Zero-Day</span>
-                        <span class="stat-label">Protection</span>
-                    </div>
-                </div>
+        <div class="hero-content">
+            <div class="hero-icon">
+                <i class="fas fa-clipboard-check"></i>
             </div>
-            <div class="hero-visual">
-                <div class="threat-scanner">
-                    <div class="scanner-ring"></div>
-                    <div class="scanner-ring"></div>
-                    <div class="scanner-ring"></div>
-                    <div class="scanner-center">
-                        <i class="fas fa-search-plus"></i>
-                    </div>
-                    <div class="threat-indicators">
-                        <div class="threat-dot"></div>
-                        <div class="threat-dot"></div>
-                        <div class="threat-dot"></div>
-                        <div class="threat-dot"></div>
-                        <div class="threat-dot"></div>
-                    </div>
+            <h1 class="hero-title">Security Audits & Assessments</h1>
+            <p class="hero-subtitle">Comprehensive security evaluations to identify vulnerabilities, assess risks, and strengthen your organization's cybersecurity posture through expert analysis and testing.</p>
+            
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <span class="stat-number">500+</span>
+                    <span class="stat-label">Security Audits Completed</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">99.8%</span>
+                    <span class="stat-label">Vulnerability Detection Rate</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">24/7</span>
+                    <span class="stat-label">Expert Support</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Overview Section -->
-    <section class="overview-section">
-        <div class="overview-container">
-            <h2 class="section-title">Service Overview</h2>
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Overview Section -->
+        <section class="section">
             <div class="overview-grid">
                 <div class="overview-content">
-                    <h3>Next-Generation Threat Intelligence</h3>
-                    <p>
-                        Our Threat Detection & Analysis service leverages cutting-edge artificial intelligence and machine learning algorithms to provide unparalleled security monitoring and threat intelligence. By combining behavioral analysis, pattern recognition, and real-time monitoring, we deliver comprehensive protection against both known and unknown threats.
-                    </p>
-                    <ul class="key-benefits">
-                        <li>Proactive threat identification before damage occurs</li>
-                        <li>Reduced false positives through intelligent filtering</li>
-                        <li>Comprehensive visibility across all network endpoints</li>
-                        <li>Automated response and remediation capabilities</li>
-                        <li>Integration with existing security infrastructure</li>
-                        <li>Detailed forensic analysis and reporting</li>
-                    </ul>
+                    <h3>What Are Security Audits & Assessments?</h3>
+                    <p>Security audits and assessments are systematic evaluations of your organization's information systems, networks, and security policies. These comprehensive reviews identify vulnerabilities, assess compliance with security standards, and provide actionable recommendations to strengthen your cybersecurity posture.</p>
+                    <p>Our expert team conducts thorough examinations using industry-leading methodologies and tools to ensure no stone is left unturned in protecting your digital assets.</p>
                 </div>
-                <div class="overview-image">
+                <div class="overview-visual">
                     <div class="image-placeholder">
-                        [Threat Detection Dashboard Screenshot]<br>
-                        Real-time threat monitoring interface
+                        <i class="fas fa-search-plus"></i>
+                        <span>Security Assessment Overview Image</span>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Core Features Section -->
-    <section class="features-section">
-        <div class="features-container">
-            <h2 class="section-title">Core Features & Capabilities</h2>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-clock"></i>
+        <!-- Core Services Section -->
+        <section class="section">
+            <h2 class="section-title">Our Core Assessment Services</h2>
+            <p class="section-subtitle">Comprehensive security evaluations tailored to your organization's unique needs and risk profile.</p>
+            
+            <div class="services-grid">
+                <div class="service-detail-card">
+                    <div class="service-detail-icon">
+                        <i class="fas fa-bug"></i>
                     </div>
-                    <h3>Real-time Threat Monitoring</h3>
-                    <p>
-                        Continuous 24/7 monitoring of your entire network infrastructure, analyzing traffic patterns, user behavior, and system activities to detect potential threats as they emerge.
-                    </p>
-                    <ul class="feature-details">
-                        <li>Network traffic analysis and inspection</li>
-                        <li>Endpoint monitoring and protection</li>
-                        <li>Cloud environment security scanning</li>
-                        <li>Multi-vector threat detection</li>
-                        <li>Real-time alerting and notifications</li>
+                    <h3>Vulnerability Assessments</h3>
+                    <p>Systematic identification and analysis of security weaknesses in your systems, applications, and network infrastructure.</p>
+                    <ul class="service-features">
+                        <li>Automated vulnerability scanning</li>
+                        <li>Manual security testing</li>
+                        <li>Risk prioritization and scoring</li>
+                        <li>Remediation guidance</li>
+                        <li>Compliance mapping</li>
                     </ul>
-                </div>
-
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-brain"></i>
+                    <div class="image-placeholder" style="height: 200px; margin-top: 1rem;">
+                        <i class="fas fa-shield-virus"></i>
+                        <span>Vulnerability Assessment Process</span>
                     </div>
-                    <h3>Behavioral Analysis Algorithms</h3>
-                    <p>
-                        Advanced machine learning models that establish baseline behaviors for users, devices, and applications, instantly detecting anomalies that may indicate malicious activity.
-                    </p>
-                    <ul class="feature-details">
-                        <li>User behavior analytics (UBA)</li>
-                        <li>Entity behavior analytics (EBA)</li>
-                        <li>Anomaly detection algorithms</li>
-                        <li>Pattern recognition and classification</li>
-                        <li>Adaptive learning and model updates</li
-                    </ul>
                 </div>
-                </section>
                 
-<!-- Footer -->
+                <div class="service-detail-card">
+                    <div class="service-detail-icon">
+                        <i class="fas fa-user-ninja"></i>
+                    </div>
+                    <h3>Penetration Testing</h3>
+                    <p>Ethical hacking exercises that simulate real-world attacks to identify exploitable vulnerabilities and security gaps.</p>
+                    <ul class="service-features">
+                        <li>External network penetration testing</li>
+                        <li>Internal network assessments</li>
+                        <li>Web application security testing</li>
+                        <li>Social engineering assessments</li>
+                        <li>Wireless network testing</li>
+                    </ul>
+                    <div class="image-placeholder" style="height: 200px; margin-top: 1rem;">
+                        <i class="fas fa-crosshairs"></i>
+                        <span>Penetration Testing Methodology</span>
+                    </div>
+                </div>
+                
+                <div class="service-detail-card">
+                    <div class="service-detail-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Security Maturity Audits</h3>
+                    <p>Comprehensive evaluation of your organization's security maturity level and alignment with industry best practices.</p>
+                    <ul class="service-features">
+                        <li>Security framework assessment</li>
+                        <li>Policy and procedure review</li>
+                        <li>Governance evaluation</li>
+                        <li>Maturity benchmarking</li>
+                        <li>Strategic roadmap development</li>
+                    </ul>
+                    <div class="image-placeholder" style="height: 200px; margin-top: 1rem;">
+                        <i class="fas fa-level-up-alt"></i>
+                        <span>Security Maturity Framework</span>
+                    </div>
+                </div>
+                
+                <div class="service-detail-card">
+                    <div class="service-detail-icon">
+                        <i class="fas fa-network-wired"></i>
+                    </div>
+                    <h3>Network Security Reviews</h3>
+                    <p>In-depth analysis of network architecture, configurations, and security controls to identify potential attack vectors.</p>
+                    <ul class="service-features">
+                        <li>Network architecture analysis</li>
+                        <li>Firewall configuration review</li>
+                        <li>Access control assessment</li>
+                        <li>Network segmentation evaluation</li>
+                        <li>Traffic flow analysis</li>
+                    </ul>
+                    <div class="image-placeholder" style="height: 200px; margin-top: 1rem;">
+                        <i class="fas fa-project-diagram"></i>
+                        <span>Network Security Architecture</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Assessment Process Section -->
+        <section class="section">
+            <h2 class="section-title">Our Assessment Process</h2>
+            <p class="section-subtitle">A structured, methodical approach ensuring comprehensive coverage and actionable results.</p>
+            
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <h4>Discovery & Planning</h4>
+                    <p>Initial consultation to understand your environment, business objectives, and specific security concerns. We develop a customized assessment plan tailored to your needs.</p>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <h4>Reconnaissance</h4>
+                    <p>Passive information gathering to understand your digital footprint, infrastructure, and potential attack surfaces without alerting security systems.</p>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <h4>Active Testing</h4>
+                    <p>Comprehensive scanning and testing of systems, applications, and networks using advanced tools and manual techniques to identify vulnerabilities.</p>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <h4>Exploitation</h4>
+                    <p>Controlled attempts to exploit identified vulnerabilities to determine their real-world impact and potential for compromise.</p>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">5</div>
+                    <h4>Analysis & Reporting</h4>
+                    <p>Detailed analysis of findings with risk ratings, business impact assessment, and comprehensive reporting with executive summaries.</p>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">6</div>
+                    <h4>Remediation Support</h4>
+                    <p>Ongoing support to help implement recommended security improvements and verify that vulnerabilities have been properly addressed.</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Benefits Section -->
+        <section class="section">
+            <h2 class="section-title">Why Choose Our Security Assessments?</h2>
+            <p class="section-subtitle">Comprehensive benefits that go beyond basic vulnerability scanning to provide real security value.</p>
+            
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <h4>Complete Visibility</h4>
+                    <p>Gain comprehensive insight into your security posture with detailed assessments covering all aspects of your digital infrastructure and identifying hidden vulnerabilities.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h4>Proactive Protection</h4>
+                    <p>Identify and address security weaknesses before attackers can exploit them, significantly reducing your risk of successful cyber attacks and data breaches.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <h4>Compliance Assurance</h4>
+                    <p>Ensure adherence to industry standards and regulatory requirements including PCI DSS, HIPAA, SOX, and other relevant compliance frameworks.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-chart-bar"></i>
+                    </div>
+                    <h4>Risk Quantification</h4>
+                    <p>Receive detailed risk assessments with quantified impact analysis, helping you prioritize security investments and resource allocation effectively.</p>
+                </div>
+                </div>
+        </section>
+                
+
+        <!-- Footer -->
     <footer class="footer">
         <div class="footer-container">
             <div class="footer-grid">
