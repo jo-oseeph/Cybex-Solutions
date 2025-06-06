@@ -152,7 +152,7 @@
             font-size: 2.5rem;
             font-weight: 700;
             margin-bottom: 2rem;
-            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
@@ -815,6 +815,13 @@
                 grid-template-columns: 1fr;
                 gap: 2rem;
             }
+            .hero {
+                padding: 3rem 1rem;
+                height: auto;
+            }   
+            .hero-title {
+                font-size: 2rem;
+            }
             
             .story-content h2 {
                 font-size: 2rem;
@@ -860,7 +867,7 @@
                     <li><a href="threat-detection.html">Threat Detection</a></li>
                     <li><a href="incident-response.html">Incident Response</a></li>
                     <li><a href="security-consulting.html">Security Consulting</a></li>
-                    <li><a href="security-governance.html">Governance & Compliance</a></li>
+                    <!-- <li><a href="security-governance.html">Governance & Compliance</a></li> -->
                     <li><a href="managed-security.html">Managed Security Services</a></li>
                     <li><a href="security-audit.html">Security Audits & Assessments</a></li>
                 </ul>
@@ -897,7 +904,7 @@
                     <li><a href="threat-detection.html">Threat Detection</a></li>
                     <li><a href="incident-response.html">Incident Response</a></li>
                     <li><a href="security-consulting.html">Security Consulting</a></li>
-                    <li><a href="security-governance.html">Governance & Compliance</a></li>
+                    <!-- <li><a href="security-governance.html">Governance & Compliance</a></li> -->
                     <li><a href="managed-security.html">Managed Security Services</a></li>
                     <li><a href="security-audit.html">Security Audits & Assessments</a></li>
                 </ul>
@@ -912,9 +919,9 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
-            <div class="hero-icon">
+            <!-- <div class="hero-icon">
                 <i class="fas fa-cogs"></i>
-            </div>
+            </div> -->
             <h1 class="hero-title">Managed Security Services</h1>
             <p class="hero-subtitle">Complete managed security operations including 24/7 monitoring, threat hunting, and proactive security management for your infrastructure. Let our experts handle your cybersecurity while you focus on your business.</p>
             
@@ -954,20 +961,22 @@
                     
                     <p>By partnering with CyberShield for managed security services, you gain access to enterprise-grade security capabilities without the overhead of building and maintaining an in-house security team. This allows you to focus on your core business objectives while we handle the complex task of keeping your digital assets secure.</p>
                 </div>
-                <div class="overview-image">
-                    <div class="image-placeholder">
-                        <i class="fas fa-desktop"></i>
-                    </div>
-                    <p style="margin-top: 1rem; color: rgba(224, 224, 255, 0.7); font-size: 0.9rem;">
-                        [SOC Operations Center Dashboard Image]
-                    </p>
-                </div>
+               <div class="overview-image">
+    <img 
+        src="images/WhatsApp Image 2025-06-06 at 00.13.57_598e5878.jpg" 
+        alt="SOC Operations Center Dashboard"
+        style="width:100%; max-width:420px; height:auto; border-radius:15px; box-shadow:0 8px 32px rgba(0,247,255,0.08); object-fit:cover; display:block; margin:0 auto;"
+    >
+    <p style="margin-top: 1rem; color: rgba(224, 224, 255, 0.7); font-size: 0.9rem; text-align: center;">
+        SOC Operations Center Dashboard
+    </p>
+</div>
             </div>
         </section>
 
         <!-- Services Detail Section -->
         <section class="services-detail">
-            <h2 class="section-title">Core Service Components</h2>
+            <h2 class="section-title"> Service Components</h2>
             <div class="services-grid">
                 <div class="service-detail-card">
                     <div class="service-card-icon">
@@ -985,12 +994,12 @@
                         <li>Compliance monitoring for regulatory requirements</li>
                         <li>Custom security dashboards and reporting</li>
                     </ul>
-                    <div class="image-placeholder" style="height: 200px; margin-top: 1rem;">
+                    <!-- <div class="image-placeholder" style="height: 200px; margin-top: 1rem;">
                         <i class="fas fa-chart-line"></i>
                     </div>
                     <p style="margin-top: 0.5rem; color: rgba(224, 224, 255, 0.7); font-size: 0.8rem; text-align: center;">
                         [Real-time Security Dashboard]
-                    </p>
+                    </p> -->
                 </div>
 
                 <div class="service-detail-card">
@@ -1009,12 +1018,12 @@
                         <li>Custom IOC (Indicators of Compromise) development</li>
                         <li>Detailed threat hunting reports and recommendations</li>
                     </ul>
-                    <div class="image-placeholder" style="height: 200px; margin-top: 1rem;">
+                    <!-- <div class="image-placeholder" style="height: 200px; margin-top: 1rem;">
                         <i class="fas fa-search-plus"></i>
                     </div>
                     <p style="margin-top: 0.5rem; color: rgba(224, 224, 255, 0.7); font-size: 0.8rem; text-align: center;">
                         [Threat Hunting Analysis Interface]
-                    </p>
+                    </p> -->
                 </div>
 
                 <div class="service-detail-card">
@@ -1033,12 +1042,12 @@
                         <li>Device health monitoring and maintenance</li>
                         <li>Integration with existing IT infrastructure</li>
                     </ul>
-                    <div class="image-placeholder" style="height: 200px; margin-top: 1rem;">
+                    <!-- <div class="image-placeholder" style="height: 200px; margin-top: 1rem;">
                         <i class="fas fa-network-wired"></i>
                     </div>
                     <p style="margin-top: 0.5rem; color: rgba(224, 224, 255, 0.7); font-size: 0.8rem; text-align: center;">
                         [Security Infrastructure Management]
-                    </p>
+                    </p> -->
                 </div>
 
                 <div class="service-detail-card">
@@ -1057,12 +1066,12 @@
                         <li>Strategic threat briefings for executives</li>
                         <li>Tactical threat feeds for security systems</li>
                     </ul>
-                    <div class="image-placeholder" style="height: 200px; margin-top: 1rem;">
+                    <!-- <div class="image-placeholder" style="height: 200px; margin-top: 1rem;">
                         <i class="fas fa-globe-americas"></i>
                     </div>
                     <p style="margin-top: 0.5rem; color: rgba(224, 224, 255, 0.7); font-size: 0.8rem; text-align: center;">
                         [Global Threat Intelligence Map]
-                    </p>
+                    </p> -->
                 </div>
             </div>
         </section>
@@ -1092,13 +1101,7 @@
                     <h3 class="benefit-title">Scalability</h3>
                     <p class="benefit-description">Easily scale security operations up or down based on your business needs without the complexity of hiring and training staff.</p>
                 </div>
-                <div class="benefit-card">
-                    <div class="benefit-icon">
-                        <i class="fas fa-clock"></i>
-                    </div>
-                    <h3 class="benefit-title">Rapid Response</h3>
-                    <p class="benefit-description">Average incident response time of under 15 minutes with immediate containment actions to minimize business impact.</p>
-                </div>
+              
             </div>
         </section>
         <!-- Footer -->
@@ -1111,23 +1114,22 @@
                 </div>
                 <div class="footer-section">
                     <h3>Solutions</h3>
-                    <a href="#">Threat Detection</a>
-                    <a href="#">Incident Response</a>
-                    <a href="#">Security Consulting</a>
-                    <a href="#">Compliance Management</a>
-                    <a href="#">Risk Assessment</a>
+                      <a href="threat-detection.html">Threat Detection</a>
+                    <a href="incident-response.html">Incident Response</a>
+                    <a href="security-consulting.html">Security Consulting</a>    
+                    <a href="security-audit.html">Security Audit</a>
                 </div>
                 <div class="footer-section">
                     <h3>Company</h3>
                     <a href="about.html">About Us</a>
                     <a href="careers.html">Careers</a>
-                    <a href="#">Certifications</a>
+                    <!-- <a href="#">Certifications</a> -->
                 </div>
                 <div class="footer-section" style="font-family: 'Orbitron', sans-serif;">
                     <h3>Contact</h3>
-                    <p>📧 info@cybex.com</p>
-                    <p>📞 +254 (717) 378-758</p>
-                    <p>🏢 123 Tech Solutions<br>
+                    <p> info@cybex.com</p>
+                    <p> +254 (717) 378-758</p>
+                    <p> 123 Tech Solutions<br>
 Woodvale Grove, Westlands<br>
 Nairobi, Kenya</p>
                 </div>
@@ -1206,7 +1208,7 @@ Nairobi, Kenya</p>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 Cybex. All rights reserved. | Privacy Policy | Terms of Service</p>
+                <p>&copy; 2025 Cybex. All rights reserved.</p>
             </div>
         </div>
     </footer>
