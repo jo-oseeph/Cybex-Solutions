@@ -102,7 +102,7 @@
             font-size: 3.5rem;
             font-weight: 900;
             margin-bottom: 1.5rem;
-            background: linear-gradient(90deg, var(--primary-color), var(--light-text));
+              background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
@@ -648,7 +648,7 @@
         
         @media (max-width: 768px) {
             .hero-title {
-                font-size: 2.5rem;
+                font-size: 2rem;
             }
             
             .hero-stats {
@@ -684,6 +684,9 @@
             .cta-buttons {
                 flex-direction: column;
                 align-items: center;
+            }
+            .section-title {
+                font-size: 2rem;
             }
         }
         
@@ -972,7 +975,7 @@
     <section class="service-hero">
         <div class="hero-container">
             <div class="hero-content">
-                <span class="service-badge">Premium Service</span>
+                <!-- <span class="service-badge">Premium Service</span> -->
                 <h1 class="hero-title">Security Consulting & Strategy</h1>
                 <p class="hero-subtitle">Transform your organization's security posture with expert strategic guidance, comprehensive risk assessments, and tailored security frameworks designed to protect your most valuable digital assets.</p>
                 <div class="hero-stats">
@@ -990,12 +993,13 @@
                     </div>
                 </div>
             </div>
-            <div class="hero-visual">
-                <div class="hero-image-placeholder">
-                    <i class="fas fa-chart-line placeholder-icon"></i>
-                    <p class="placeholder-text">Strategic Security Consulting<br>Visualization Dashboard</p>
-                </div>
-            </div>
+           <div class="hero-visual" style="display: flex; align-items: center; justify-content: center;">
+    <img 
+        src="images/WhatsApp Image 2025-06-06 at 00.13.57_598e5878.jpg" 
+        alt="Strategic Security Consulting Visualization Dashboard"
+        style="width: 100%; max-width: 480px; height: auto; border-radius: 20px; box-shadow: 0 8px 32px rgba(0,247,255,0.08); object-fit: cover;"
+    >
+</div>
         </div>
     </section>
 
@@ -1016,12 +1020,16 @@
                         <li>Continuous security posture improvement</li>
                     </ul>
                 </div>
-                <div class="overview-image">
-                    <div class="image-placeholder">
-                        <i class="fas fa-shield-alt placeholder-icon"></i>
-                        <p class="placeholder-text">Security Framework<br>Architecture Diagram</p>
-                    </div>
-                </div>
+               <div class="overview-image">
+    <img 
+        src="images/WhatsApp Image 2025-06-06 at 00.13.57_598e5878.jpg" 
+        alt="Security Framework Architecture Diagram"
+        style="width:100%; max-width:420px; height:auto; border-radius:15px; box-shadow:0 8px 32px rgba(0,247,255,0.08); object-fit:cover; display:block; margin:0 auto;"
+    >
+    <div style="text-align:center; color:rgba(224,224,255,0.8); font-size:1rem; margin-top:0.5rem;">
+        Security Framework<br>Architecture Diagram
+    </div>
+</div>
             </div>
         </div>
     </section>
@@ -1039,10 +1047,10 @@
                     <p>Comprehensive security policy creation that establishes clear guidelines, procedures, and standards for your organization's security operations and employee behavior.</p>
                     <ul class="service-features">
                         <li>Information Security Policy frameworks</li>
-                        <li>Access Control and Identity Management policies</li>
+                        <!-- <li>Access Control and Identity Management policies</li> -->
                         <li>Data Protection and Privacy policies</li>
                         <li>Incident Response and Business Continuity policies</li>
-                        <li>Acceptable Use and BYOD policies</li>
+                        <!-- <li>Acceptable Use and BYOD policies</li> -->
                         <li>Regular policy reviews and updates</li>
                         <li>Staff training and awareness programs</li>
                     </ul>
@@ -1060,8 +1068,8 @@
                         <li>Risk prioritization and impact analysis</li>
                         <li>Mitigation strategy development and implementation</li>
                         <li>Risk monitoring and continuous evaluation</li>
-                        <li>Business impact assessments</li>
-                        <li>Insurance and transfer risk strategies</li>
+                        <!-- <li>Business impact assessments</li> -->
+                        <!-- <li>Insurance and transfer risk strategies</li> -->
                     </ul>
                 </div>
 
@@ -1076,91 +1084,14 @@
                         <li>Application security design reviews</li>
                         <li>Cloud infrastructure security evaluation</li>
                         <li>Zero-trust architecture implementation</li>
-                        <li>Identity and Access Management (IAM) reviews</li>
                         <li>Security controls effectiveness analysis</li>
-                        <li>Architecture optimization recommendations</li>
+                     
                     </ul>
                 </div>
-
-                <!-- <div class="service-detail-card">
-                    <div class="service-icon">
-                        <i class="fas fa-route"></i>
-                    </div>
-                    <h3>Security Roadmap Planning</h3>
-                    <p>Strategic planning that creates a clear path for security improvements, technology investments, and organizational changes over time.</p>
-                    <ul class="service-features">
-                        <li>Long-term security strategy development</li>
-                        <li>Technology roadmap and investment planning</li>
-                        <li>Phased implementation timelines</li>
-                        <li>Budget planning and resource allocation</li>
-                        <li>Milestone tracking and progress monitoring</li>
-                        <li>Stakeholder alignment and communication</li>
-                        <li>Continuous roadmap refinement and updates</li>
-                    </ul>
-                </div> -->
             </div>
         </div>
     </section>
 
-    <!-- Process Section -->
-    <!-- <section class="process-section">
-        <div class="section-container">
-            <h2 class="section-title">Our Consultation Process</h2>
-            <div class="process-timeline">
-                <div class="process-step">
-                    <div class="process-number">1</div>
-                    <div class="process-content">
-                        <div class="process-card">
-                            <h4>Initial Assessment & Discovery</h4>
-                            <p>We begin with a comprehensive assessment of your current security posture, business objectives, and regulatory requirements. This includes stakeholder interviews, documentation reviews, and infrastructure analysis to understand your unique challenges and goals.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="process-step">
-                    <div class="process-number">2</div>
-                    <div class="process-content">
-                        <div class="process-card">
-                            <h4>Risk Analysis & Gap Identification</h4>
-                            <p>Our experts conduct detailed risk assessments, vulnerability analyses, and compliance gap identification. We map your current security controls against industry frameworks and identify areas for improvement and potential security weaknesses.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="process-step">
-                    <div class="process-number">3</div>
-                    <div class="process-content">
-                        <div class="process-card">
-                            <h4>Strategy Development & Planning</h4>
-                            <p>Based on our findings, we develop a comprehensive security strategy tailored to your organization. This includes policy frameworks, architectural recommendations, technology solutions, and detailed implementation roadmaps with clear timelines and budgets.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="process-step">
-                    <div class="process-number">4</div>
-                    <div class="process-content">
-                        <div class="process-card">
-                            <h4>Implementation Support & Monitoring</h4>
-                            <p>We provide ongoing support during implementation, including project management, technical guidance, and progress monitoring. Our team ensures successful deployment of security initiatives and provides continuous optimization recommendations.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section> -->
-
-    <!-- CTA Section -->
-     <section class="cta-section">
-        <div class="cta-content">
-            <h2 class="cta-title">Ready to Strengthen Your Security Strategy?</h2>
-            <p class="cta-text">Transform your organization's security posture with expert guidance from our certified security professionals. Let's work together to build a comprehensive security framework that protects your assets and enables business growth.</p>
-            <div class="cta-buttons">
-                <a href="#contact" class="primary-btn">Schedule Consultation</a>
-                <a href="#portfolio" class="secondary-btn">View Case Studies</a>
-            </div>
-        </div>
-    </section>
 
 <!-- Footer -->
     <footer class="footer">
@@ -1172,23 +1103,22 @@
                 </div>
                 <div class="footer-section">
                     <h3>Solutions</h3>
-                    <a href="#">Threat Detection</a>
-                    <a href="#">Incident Response</a>
-                    <a href="#">Security Consulting</a>
-                    <a href="#">Compliance Management</a>
-                    <a href="#">Risk Assessment</a>
+                    <a href="threat-detection.html">Threat Detection</a>
+                    <a href="incident-response.html">Incident Response</a>
+                    <a href="security-consulting.html">Security Consulting</a>    
+                    <a href="security-audit.html">Security Audit</a>
                 </div>
                 <div class="footer-section">
                     <h3>Company</h3>
                     <a href="about.html">About Us</a>
                     <a href="careers.html">Careers</a>
-                    <a href="#">Certifications</a>
+                    <!-- <a href="#">Certifications</a> -->
                 </div>
                 <div class="footer-section" style="font-family: 'Orbitron', sans-serif;">
                     <h3>Contact</h3>
-                    <p>📧 info@cybex.com</p>
-                    <p>📞 +254 (717) 378-758</p>
-                    <p>🏢 123 Tech Solutions<br>
+                    <p> info@cybex.com</p>
+                    <p> +254 (717) 378-758</p>
+                    <p> 123 Tech Solutions<br>
 Woodvale Grove, Westlands<br>
 Nairobi, Kenya</p>
                 </div>
@@ -1267,7 +1197,7 @@ Nairobi, Kenya</p>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 Cybex. All rights reserved. | Privacy Policy | Terms of Service</p>
+                <p>&copy; 2025 Cybex. All rights reserved.</p>
             </div>
         </div>
     </footer>
