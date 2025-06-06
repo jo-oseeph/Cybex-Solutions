@@ -53,7 +53,7 @@
             align-items: center;
             justify-content: center;
             text-align: center;
-            padding: 2rem;
+            padding: 1.5rem;
             position: relative;
             background: 
                 radial-gradient(circle at 20% 80%, rgba(0, 247, 255, 0.15) 0%, transparent 50%),
@@ -79,7 +79,7 @@
         }
         
         .hero-content {
-            max-width: 900px;
+            max-width: 1200px;
             z-index: 10;
             position: relative;
         }
@@ -92,7 +92,7 @@
         }
         
         .hero-title {
-            font-size: 3.5rem;
+            font-size: 3rem;
             font-weight: 900;
             margin-bottom: 1.5rem;
             background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
@@ -341,80 +341,7 @@
             line-height: 1.6;
         }
         
-        /* Process Section */
-        .process-section {
-            margin-bottom: 80px;
-        }
-        
-        .process-timeline {
-            position: relative;
-            margin-top: 3rem;
-        }
-        
-        .process-timeline::before {
-            content: '';
-            position: absolute;
-            left: 50%;
-            top: 0;
-            bottom: 0;
-            width: 2px;
-            background: linear-gradient(180deg, var(--primary-color), var(--secondary-color), var(--accent-color));
-            transform: translateX(-50%);
-        }
-        
-        .process-step {
-            position: relative;
-            margin-bottom: 4rem;
-            animation: fadeInUp 1s ease;
-        }
-        
-        .process-step:nth-child(odd) .process-content {
-            margin-right: 55%;
-            text-align: right;
-        }
-        
-        .process-step:nth-child(even) .process-content {
-            margin-left: 55%;
-            text-align: left;
-        }
-        
-        .process-number {
-            position: absolute;
-            left: 50%;
-            top: 0;
-            transform: translateX(-50%);
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--dark-bg);
-        }
-        
-        .process-content {
-            background: var(--card-bg);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(0, 247, 255, 0.2);
-            border-radius: 15px;
-            padding: 2rem;
-        }
-        
-        .process-title {
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            color: var(--light-text);
-        }
-        
-        .process-description {
-            color: rgba(224, 224, 255, 0.8);
-            line-height: 1.6;
-        }
-        
+       
         /* CTA Section */
         .cta-section {
             text-align: center;
@@ -584,8 +511,13 @@
         }
         
         @media (max-width: 768px) {
+            .hero {
+                padding: 2rem 1rem;
+                min-height: 100vh;
+            }
             .hero-title {
-                font-size: 2.5rem;
+                font-size: 2rem;
+                padding-top: 50px;
             }
             
             .hero-subtitle {
