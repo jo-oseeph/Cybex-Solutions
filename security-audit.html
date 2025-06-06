@@ -86,15 +86,9 @@
             animation: fadeInUp 1s ease;
         }
         
-        .hero-icon {
-            font-size: 5rem;
-            color: var(--primary-color);
-            margin-bottom: 2rem;
-            animation: pulse 2s infinite;
-        }
         
         .hero-title {
-            font-size: 3.5rem;
+            font-size: 3rem;
             font-weight: 900;
             margin-bottom: 1.5rem;
             background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
@@ -312,7 +306,7 @@
         }
         
         .service-features li::before {
-            content: '✓';
+            content: '.';
             position: absolute;
             left: 0;
             color: var(--success-color);
@@ -411,95 +405,7 @@
             line-height: 1.6;
         }
         
-        /* CTA Section */
-        .cta-section {
-            background: linear-gradient(135deg, rgba(0, 102, 255, 0.1), rgba(149, 0, 255, 0.1));
-            border-radius: 20px;
-            padding: 4rem 2rem;
-            text-align: center;
-            margin-top: 4rem;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .cta-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(45deg, transparent, rgba(0, 247, 255, 0.05), transparent);
-            animation: shimmer 3s ease-in-out infinite;
-        }
-        
-        .cta-title {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 1.5rem;
-            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-        
-        .cta-description {
-            font-size: 1.2rem;
-            color: rgba(224, 224, 255, 0.8);
-            margin-bottom: 2rem;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        
-        .cta-buttons {
-            display: flex;
-            gap: 1.5rem;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-        
-        .primary-btn {
-            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
-            color: var(--dark-bg);
-            border: none;
-            padding: 1rem 2.5rem;
-            border-radius: 30px;
-            font-weight: 700;
-            letter-spacing: 1px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 0 15px rgba(0, 247, 255, 0.3);
-            text-decoration: none;
-            display: inline-block;
-            font-size: 1.1rem;
-        }
-        
-        .primary-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 0 25px rgba(0, 247, 255, 0.5);
-        }
-        
-        .secondary-btn {
-            background: transparent;
-            color: var(--primary-color);
-            border: 2px solid var(--primary-color);
-            padding: 1rem 2.5rem;
-            border-radius: 30px;
-            font-weight: 700;
-            letter-spacing: 1px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 1.1rem;
-        }
-        
-        .secondary-btn:hover {
-            background: rgba(0, 247, 255, 0.1);
-            box-shadow: 0 0 15px rgba(0, 247, 255, 0.3);
-        }
-        
+       
         /* Animations */
         @keyframes fadeInUp {
             from {
@@ -809,7 +715,11 @@
             .nav-links {
                 display: none;
             }
-            
+            .hero-title {
+                font-size: 2rem;
+                padding-top: 70px !important;
+            }
+
             .page-header h1 {
                 font-size: 2.5rem;
             }
@@ -863,7 +773,7 @@
                     <li><a href="threat-detection.html">Threat Detection</a></li>
                     <li><a href="incident-response.html">Incident Response</a></li>
                     <li><a href="security-consulting.html">Security Consulting</a></li>
-                    <li><a href="security-governance.html">Governance & Compliance</a></li>
+                    <!-- <li><a href="security-governance.html">Governance & Compliance</a></li> -->
                     <li><a href="managed-security.html">Managed Security Services</a></li>
                     <li><a href="security-audit.html">Security Audits & Assessments</a></li>
                 </ul>
@@ -900,7 +810,7 @@
                     <li><a href="threat-detection.html">Threat Detection</a></li>
                     <li><a href="incident-response.html">Incident Response</a></li>
                     <li><a href="security-consulting.html">Security Consulting</a></li>
-                    <li><a href="security-governance.html">Governance & Compliance</a></li>
+                    <!-- <li><a href="security-governance.html">Governance & Compliance</a></li> -->
                     <li><a href="managed-security.html">Managed Security Services</a></li>
                     <li><a href="security-audit.html">Security Audits & Assessments</a></li>
                 </ul>
@@ -915,9 +825,7 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
-            <div class="hero-icon">
-                <i class="fas fa-clipboard-check"></i>
-            </div>
+           
             <h1 class="hero-title">Security Audits & Assessments</h1>
             <p class="hero-subtitle">Comprehensive security evaluations to identify vulnerabilities, assess risks, and strengthen your organization's cybersecurity posture through expert analysis and testing.</p>
             
@@ -930,10 +838,7 @@
                     <span class="stat-number">99.8%</span>
                     <span class="stat-label">Vulnerability Detection Rate</span>
                 </div>
-                <div class="stat-item">
-                    <span class="stat-number">24/7</span>
-                    <span class="stat-label">Expert Support</span>
-                </div>
+               
             </div>
         </div>
     </section>
@@ -948,18 +853,22 @@
                     <p>Security audits and assessments are systematic evaluations of your organization's information systems, networks, and security policies. These comprehensive reviews identify vulnerabilities, assess compliance with security standards, and provide actionable recommendations to strengthen your cybersecurity posture.</p>
                     <p>Our expert team conducts thorough examinations using industry-leading methodologies and tools to ensure no stone is left unturned in protecting your digital assets.</p>
                 </div>
-                <div class="overview-visual">
-                    <div class="image-placeholder">
-                        <i class="fas fa-search-plus"></i>
-                        <span>Security Assessment Overview Image</span>
-                    </div>
-                </div>
+               <div class="overview-visual">
+    <img 
+        src="images/WhatsApp Image 2025-06-06 at 00.13.57_598e5878.jpg" 
+        alt="Security Assessment Overview"
+        style="width:100%; max-width:420px; height:auto; border-radius:15px; box-shadow:0 8px 32px rgba(0,247,255,0.08); object-fit:cover; display:block; margin:0 auto;"
+    >
+    <div style="text-align:center; color:rgba(224,224,255,0.8); font-size:1rem; margin-top:0.5rem;">
+        Security Assessment Overview Image
+    </div>
+</div>
             </div>
         </section>
 
         <!-- Core Services Section -->
         <section class="section">
-            <h2 class="section-title">Our Core Assessment Services</h2>
+            <h2 class="section-title">Our Assessment Services</h2>
             <p class="section-subtitle">Comprehensive security evaluations tailored to your organization's unique needs and risk profile.</p>
             
             <div class="services-grid">
@@ -973,13 +882,17 @@
                         <li>Automated vulnerability scanning</li>
                         <li>Manual security testing</li>
                         <li>Risk prioritization and scoring</li>
-                        <li>Remediation guidance</li>
-                        <li>Compliance mapping</li>
                     </ul>
-                    <div class="image-placeholder" style="height: 200px; margin-top: 1rem;">
-                        <i class="fas fa-shield-virus"></i>
-                        <span>Vulnerability Assessment Process</span>
-                    </div>
+                      <div style="margin-top: 1rem;">
+    <img 
+        src="images/WhatsApp Image 2025-06-06 at 00.13.57_598e5878.jpg" 
+        alt="Penetration Testing Methodology"
+        style="width:100%; max-width:320px; height:200px; border-radius:12px; box-shadow:0 8px 32px rgba(0,247,255,0.08); object-fit:cover; display:block; margin:0 auto;"
+    >
+    <div style="text-align:center; color:rgba(224,224,255,0.8); font-size:0.98rem; margin-top:0.5rem;">
+       Vulnerability Assessment Process
+    </div>
+</div>
                 </div>
                 
                 <div class="service-detail-card">
@@ -990,36 +903,22 @@
                     <p>Ethical hacking exercises that simulate real-world attacks to identify exploitable vulnerabilities and security gaps.</p>
                     <ul class="service-features">
                         <li>External network penetration testing</li>
-                        <li>Internal network assessments</li>
                         <li>Web application security testing</li>
-                        <li>Social engineering assessments</li>
                         <li>Wireless network testing</li>
                     </ul>
-                    <div class="image-placeholder" style="height: 200px; margin-top: 1rem;">
-                        <i class="fas fa-crosshairs"></i>
-                        <span>Penetration Testing Methodology</span>
-                    </div>
+                    <div style="margin-top: 1rem;">
+    <img 
+        src="images/WhatsApp Image 2025-06-06 at 00.13.57_598e5878.jpg" 
+        alt="Penetration Testing Methodology"
+        style="width:100%; max-width:320px; height:200px; border-radius:12px; box-shadow:0 8px 32px rgba(0,247,255,0.08); object-fit:cover; display:block; margin:0 auto;"
+    >
+    <div style="text-align:center; color:rgba(224,224,255,0.8); font-size:0.98rem; margin-top:0.5rem;">
+        Penetration Testing Methodology
+    </div>
+</div>
                 </div>
                 
-                <div class="service-detail-card">
-                    <div class="service-detail-icon">
-                        <i class="fas fa-chart-line"></i>
-                    </div>
-                    <h3>Security Maturity Audits</h3>
-                    <p>Comprehensive evaluation of your organization's security maturity level and alignment with industry best practices.</p>
-                    <ul class="service-features">
-                        <li>Security framework assessment</li>
-                        <li>Policy and procedure review</li>
-                        <li>Governance evaluation</li>
-                        <li>Maturity benchmarking</li>
-                        <li>Strategic roadmap development</li>
-                    </ul>
-                    <div class="image-placeholder" style="height: 200px; margin-top: 1rem;">
-                        <i class="fas fa-level-up-alt"></i>
-                        <span>Security Maturity Framework</span>
-                    </div>
-                </div>
-                
+              
                 <div class="service-detail-card">
                     <div class="service-detail-icon">
                         <i class="fas fa-network-wired"></i>
@@ -1030,19 +929,24 @@
                         <li>Network architecture analysis</li>
                         <li>Firewall configuration review</li>
                         <li>Access control assessment</li>
-                        <li>Network segmentation evaluation</li>
-                        <li>Traffic flow analysis</li>
+                       
                     </ul>
-                    <div class="image-placeholder" style="height: 200px; margin-top: 1rem;">
-                        <i class="fas fa-project-diagram"></i>
-                        <span>Network Security Architecture</span>
-                    </div>
+                       <div style="margin-top: 1rem;">
+    <img 
+        src="images/WhatsApp Image 2025-06-06 at 00.13.57_598e5878.jpg" 
+        alt="Penetration Testing Methodology"
+        style="width:100%; max-width:320px; height:200px; border-radius:12px; box-shadow:0 8px 32px rgba(0,247,255,0.08); object-fit:cover; display:block; margin:0 auto;"
+    >
+    <div style="text-align:center; color:rgba(224,224,255,0.8); font-size:0.98rem; margin-top:0.5rem;">
+       Network Security Review 
+    </div>
+</div>
                 </div>
             </div>
         </section>
 
         <!-- Assessment Process Section -->
-        <section class="section">
+        <!-- <section class="section">
             <h2 class="section-title">Our Assessment Process</h2>
             <p class="section-subtitle">A structured, methodical approach ensuring comprehensive coverage and actionable results.</p>
             
@@ -1084,7 +988,7 @@
                 </div>
             </div>
         </section>
-        
+         -->
         <!-- Benefits Section -->
         <section class="section">
             <h2 class="section-title">Why Choose Our Security Assessments?</h2>
@@ -1136,23 +1040,22 @@
                 </div>
                 <div class="footer-section">
                     <h3>Solutions</h3>
-                    <a href="#">Threat Detection</a>
-                    <a href="#">Incident Response</a>
-                    <a href="#">Security Consulting</a>
-                    <a href="#">Compliance Management</a>
-                    <a href="#">Risk Assessment</a>
+                     <a href="threat-detection.html">Threat Detection</a>
+                    <a href="incident-response.html">Incident Response</a>
+                    <a href="security-consulting.html">Security Consulting</a>    
+                    <a href="security-audit.html">Security Audit</a>
                 </div>
                 <div class="footer-section">
                     <h3>Company</h3>
                     <a href="about.html">About Us</a>
                     <a href="careers.html">Careers</a>
-                    <a href="#">Certifications</a>
+                    <!-- <a href="#">Certifications</a> -->
                 </div>
                 <div class="footer-section" style="font-family: 'Orbitron', sans-serif;">
                     <h3>Contact</h3>
-                    <p>📧 info@cybex.com</p>
-                    <p>📞 +254 (717) 378-758</p>
-                    <p>🏢 123 Tech Solutions<br>
+                    <p> info@cybex.com</p>
+                    <p> +254 (717) 378-758</p>
+                    <p> 123 Tech Solutions<br>
 Woodvale Grove, Westlands<br>
 Nairobi, Kenya</p>
                 </div>
