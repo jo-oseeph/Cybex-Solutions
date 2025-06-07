@@ -470,6 +470,31 @@
                 padding: 1.5rem;
             }
         }
+        /* Responsive styles */
+        /* Make story-stats single column and responsive on small screens */
+@media (max-width: 600px) {
+    .story-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    .story-visual {
+        width: 100%;
+        min-width: 0;
+    }
+    .story-card {
+        padding: 1rem;
+        min-width: 0;
+        box-sizing: border-box;
+    }
+    .story-stats {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    .stat-item {
+        padding: 0.7rem;
+        font-size: 1rem;
+    }
+}
         
    
         
