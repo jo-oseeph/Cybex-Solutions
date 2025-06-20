@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,12 +9,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Google Fonts - Using "Orbitron" for that tech feel -->
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Exo:wght@400;600&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Exo:wght@400;600&family=Orbitron:wght@400;700&display=swap"
+        rel="stylesheet">
 
     <link rel="stylesheet" href="airs.css">
- 
+
     <style>
-          
         /* Hero Section */
         .hero {
             position: relative;
@@ -24,7 +25,7 @@
             padding: 8rem 2rem 4rem;
             overflow: hidden;
         }
-        
+
         .hero::before {
             content: '';
             position: absolute;
@@ -33,10 +34,10 @@
             width: 100%;
             height: 100%;
             background: radial-gradient(circle at top right, rgba(0, 102, 255, 0.15), transparent 50%),
-                        radial-gradient(circle at bottom left, rgba(149, 0, 255, 0.15), transparent 50%);
+                radial-gradient(circle at bottom left, rgba(149, 0, 255, 0.15), transparent 50%);
             z-index: -2;
         }
-        
+
         .hero-container {
             display: flex;
             align-items: center;
@@ -47,12 +48,12 @@
             position: relative;
             z-index: 10;
         }
-        
+
         .hero-content {
             flex: 1;
             animation: fadeInLeft 1s ease;
         }
-        
+
         .hero-title {
             font-size: 3rem;
             line-height: 1.2;
@@ -61,7 +62,7 @@
             letter-spacing: 2px;
             text-transform: uppercase;
         }
-        
+
         .hero-title span {
             display: block;
             background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
@@ -69,7 +70,7 @@
             background-clip: text;
             color: transparent;
         }
-        
+
         .hero-subtitle {
             font-size: 1.2rem;
             margin-bottom: 2rem;
@@ -78,13 +79,13 @@
             color: rgba(224, 224, 255, 0.8);
             font-family: 'Exo', sans-serif;
         }
-        
+
         .hero-buttons {
             display: flex;
             gap: 1rem;
             margin-top: 2rem;
         }
-        
+
         .primary-btn {
             background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
             color: var(--dark-bg);
@@ -99,12 +100,12 @@
             text-decoration: none;
             display: inline-block;
         }
-        
+
         .primary-btn:hover {
             transform: translateY(-5px);
             box-shadow: 0 0 20px rgba(0, 247, 255, 0.7);
         }
-        
+
         .secondary-btn {
             background: transparent;
             color: var(--primary-color);
@@ -118,12 +119,12 @@
             text-decoration: none;
             display: inline-block;
         }
-        
+
         .secondary-btn:hover {
             background: rgba(0, 247, 255, 0.1);
             box-shadow: 0 0 15px rgba(0, 247, 255, 0.3);
         }
-        
+
         .hero-image {
             flex: 1;
             display: flex;
@@ -131,14 +132,14 @@
             position: relative;
             animation: floatUp 1s ease;
         }
-        
+
         .hero-svg {
             width: 100%;
             max-width: 600px;
             filter: drop-shadow(0 0 15px rgba(0, 247, 255, 0.3));
             animation: float 6s ease-in-out infinite;
         }
-        
+
         /* Floating Icons Animation */
         .floating-icons {
             position: absolute;
@@ -149,80 +150,88 @@
             pointer-events: none;
             z-index: -1;
         }
-        
+
         .tech-icon {
             position: absolute;
             font-size: 1.5rem;
             color: rgba(224, 224, 255, 0.2);
             animation: floatIcon 10s linear infinite;
         }
-        
+
         /* Animation Keyframes */
         @keyframes fadeInLeft {
             from {
                 opacity: 0;
                 transform: translateX(-50px);
             }
+
             to {
                 opacity: 1;
                 transform: translateX(0);
             }
         }
-        
+
         @keyframes floatUp {
             from {
                 opacity: 0;
                 transform: translateY(50px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
             }
         }
-        
+
         @keyframes float {
-            0%, 100% {
+
+            0%,
+            100% {
                 transform: translateY(0);
             }
+
             50% {
                 transform: translateY(-20px);
             }
         }
-        
+
         @keyframes floatIcon {
             0% {
                 transform: translate(0, 0) rotate(0deg);
                 opacity: 0;
             }
+
             10% {
                 opacity: 0.2;
             }
+
             90% {
                 opacity: 0.2;
             }
+
             100% {
                 transform: translate(var(--tx), var(--ty)) rotate(var(--rot));
                 opacity: 0;
             }
         }
-        
+
         /* For tablets */
         @media (max-width: 1024px) {
             .hero-title {
                 font-size: 2.5rem;
             }
-            
+
             .hero-container {
                 gap: 2rem;
             }
         }
-        
+
         /* For mobile phones */
         @media (max-width: 768px) {
             .navbar {
                 padding: 1rem;
             }
-            
+
             .nav-links {
                 position: fixed;
                 top: 0;
@@ -238,109 +247,112 @@
                 transition: all 0.5s ease;
                 box-shadow: -5px 0 15px rgba(0, 247, 255, 0.1);
             }
-            
+
             .nav-links.active {
                 right: 0;
             }
-            
+
             .hamburger {
                 display: block;
             }
-            
+
             .hero-container {
                 flex-direction: column-reverse;
                 text-align: center;
                 gap: 3rem;
             }
-            
+
             .hero-buttons {
                 justify-content: center;
             }
-            
+
             .hero-title {
                 font-size: 2rem;
             }
-            
+
             .hero-subtitle {
                 margin: 0 auto 2rem;
             }
-            
+
             .hero-svg {
                 max-width: 90%;
             }
-            .primary-btn, .secondary-btn {
+
+            .primary-btn,
+            .secondary-btn {
                 padding: 0.6rem 1.2rem;
                 font-size: 0.9rem;
             }
         }
+
         /* Learn More Button Styles */
-.learn-more-btna {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.8rem;
-    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
-    color: var(--dark-bg);
-    text-decoration: none;
-    padding: 0.8rem 2rem;
-    border-radius: 30px;
-    font-weight: 700;
-    letter-spacing: 1px;
-    font-size: 1rem;
-    transition: all 0.3s ease;
-    box-shadow: 0 0 15px rgba(0, 247, 255, 0.3);
-    position: relative;
-    overflow: hidden;
-}
+        .learn-more-btna {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            color: var(--dark-bg);
+            text-decoration: none;
+            padding: 0.8rem 2rem;
+            border-radius: 30px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 15px rgba(0, 247, 255, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
 
-.learn-more-btna:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 0 25px rgba(0, 247, 255, 0.6);
-}
+        .learn-more-btna:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 0 25px rgba(0, 247, 255, 0.6);
+        }
 
-.learn-more-btna:hover i {
-    transform: translateX(5px);
-}
+        .learn-more-btna:hover i {
+            transform: translateX(5px);
+        }
 
-.learn-more-btna i {
-    transition: transform 0.3s ease;
-    font-size: 0.9rem;
-}
+        .learn-more-btna i {
+            transition: transform 0.3s ease;
+            font-size: 0.9rem;
+        }
 
-.learn-more-btna::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-    transition: left 0.6s ease;
-}
+        .learn-more-btna::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.6s ease;
+        }
 
-.learn-more-btna:hover::before {
-    left: 100%;
-}
+        .learn-more-btna:hover::before {
+            left: 100%;
+        }
 
-/* Mobile responsiveness */
-@media (max-width: 768px) {
-    .about-cta {
-        text-align: center;
-    }
+        /* Mobile responsiveness */
+        @media (max-width: 768px) {
+            .about-cta {
+                text-align: center;
+            }
 
-    .learn-more-btna {
-        padding: 0.7rem 1.5rem;
-        font-size: 0.9rem;
-    }
-}
-  
- /* 🥳🥳About Section🥳🥳 */
+            .learn-more-btna {
+                padding: 0.7rem 1.5rem;
+                font-size: 0.9rem;
+            }
+        }
+
+        /* 🥳🥳About Section🥳🥳 */
 
         .company-story {
             padding: 80px 2rem;
             max-width: 1400px;
             margin: 0 auto;
         }
-        
+
         .story-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -348,7 +360,7 @@
             align-items: center;
             margin-bottom: 80px;
         }
-        
+
         .story-content h2 {
             font-size: 2.5rem;
             font-weight: 500;
@@ -359,7 +371,7 @@
             color: transparent;
             animation: slideInLeft 1s ease;
         }
-        
+
         .story-content p {
             font-size: 1.1rem;
             font-family: 'Exo', sans-serif;
@@ -367,12 +379,12 @@
             color: rgba(224, 224, 255, 0.9);
             animation: fadeInLeft 1s ease 0.2s both;
         }
-        
+
         .story-visual {
             position: relative;
             animation: slideInRight 1s ease;
         }
-        
+
         .story-card {
             background: var(--card-bg);
             backdrop-filter: blur(10px);
@@ -383,19 +395,19 @@
             transform: perspective(1000px) rotateY(-10deg);
             transition: all 0.3s ease;
         }
-        
+
         .story-card:hover {
             transform: perspective(1000px) rotateY(0deg) scale(1.02);
             box-shadow: 0 20px 40px rgba(0, 247, 255, 0.2);
         }
-        
+
         .story-stats {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 1.5rem;
             margin-top: 2rem;
         }
-        
+
         .stat-item {
             text-align: center;
             padding: 1rem;
@@ -403,112 +415,118 @@
             border-radius: 10px;
             border: 1px solid rgba(0, 247, 255, 0.1);
         }
-        
+
         .stat-number {
             font-size: 2rem;
             font-weight: 700;
             color: var(--primary-color);
             display: block;
         }
-        
+
         .stat-label {
             font-size: 0.9rem;
             color: rgba(224, 224, 255, 0.7);
             margin-top: 0.5rem;
         }
-         /* Responsive Design */
+
+        /* Responsive Design */
         @media (max-width: 768px) {
             .navbar {
                 padding: 1rem;
             }
-            
+
             .nav-links {
                 display: none;
             }
-            
+
             .page-header h1 {
                 font-size: 2.5rem;
             }
-            
+
             .story-grid {
                 grid-template-columns: 1fr;
                 gap: 2rem;
             }
-            
+
             .story-content h2 {
                 font-size: 2rem;
             }
-            
+
             .mvv-grid {
                 grid-template-columns: 1fr;
             }
-            
+
             .team-grid {
                 grid-template-columns: 1fr;
             }
-            
+
             .footer-grid {
                 grid-template-columns: 1fr;
                 gap: 2rem;
             }
         }
-        
+
         @media (max-width: 480px) {
             .page-header {
                 padding: 100px 1rem 60px;
             }
-            
-            .company-story, .mvv-section, .team-section {
+
+            .company-story,
+            .mvv-section,
+            .team-section {
                 padding: 60px 1rem;
             }
-            
+
             .mvv-card {
                 padding: 2rem;
             }
-            
+
             .team-card {
                 padding: 1.5rem;
             }
         }
+
         /* Responsive styles */
         /* Make story-stats single column and responsive on small screens */
-@media (max-width: 600px) {
-    .story-grid {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-    }
-    .story-visual {
-        width: 100%;
-        min-width: 0;
-    }
-    .story-card {
-        padding: 1rem;
-        min-width: 0;
-        box-sizing: border-box;
-    }
-    .story-stats {
-        grid-template-columns: 1fr;
-        gap: 1rem;
-    }
-    .stat-item {
-        padding: 0.7rem;
-        font-size: 1rem;
-    }
-}
-        
-   
-        
+        @media (max-width: 600px) {
+            .story-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .story-visual {
+                width: 100%;
+                min-width: 0;
+            }
+
+            .story-card {
+                padding: 1rem;
+                min-width: 0;
+                box-sizing: border-box;
+            }
+
+            .story-stats {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .stat-item {
+                padding: 0.7rem;
+                font-size: 1rem;
+            }
+        }
     </style>
 </head>
+
 <body>
-     <!-- Navigation -->
+    <!-- Navigation -->
     <nav class="navbar">
         <div class="logo">
             <div class="logo-text" style=" background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
             -webkit-background-clip: text;
             background-clip: text;">CYBEX</div>
         </div>
-        
+
         <!-- Desktop Navigation -->
         <ul class="nav-links">
             <li><a href="index.html">Home</a></li>
@@ -525,12 +543,12 @@
                     <li><a href="security-audit.html">Security Audits & Assessments</a></li>
                 </ul>
             </li>
-           
+
             <li><a href="about.html">About Us</a></li>
-             <li><a href="careers.html">Careers</a></li>
+            <li><a href="careers.html">Careers</a></li>
             <li><a href="contact.html">Contact Us</a></li>
         </ul>
-        
+
         <!-- Mobile Menu Button -->
         <button class="hamburger" id="mobile-menu-toggle">
             <i class="fas fa-bars" id="hamburger-icon"></i>
@@ -539,14 +557,14 @@
 
     <!-- Mobile Navigation Overlay -->
     <div class="mobile-overlay" id="mobile-overlay"></div>
-    
+
     <!-- Mobile Navigation -->
     <nav class="mobile-nav" id="mobile-nav">
         <!-- Mobile Close Button -->
         <button class="mobile-close" id="mobile-close">
             <i class="fas fa-times"></i>
         </button>
-        
+
         <ul class="mobile-nav-links">
             <li><a href="index.html">Home</a></li>
             <li class="mobile-dropdown">
@@ -562,7 +580,7 @@
                     <li><a href="security-audit.html">Security Audits & Assessments</a></li>
                 </ul>
             </li>
-             <li><a href="about.html">About Us</a></li>
+            <li><a href="about.html">About Us</a></li>
             <li><a href="careers.html">Careers</a></li>
             <li><a href="contact.html">Contact Us</a></li>
         </ul>
@@ -573,32 +591,41 @@
         <div class="hero-container">
             <div class="hero-content">
                 <h1 class="hero-title">Your New <span>Cybersecurity</span> Solutions</h1>
-                <p class="hero-subtitle">Protecting your digital assets with next-generation AI-powered security infrastructure and real-time threat intelligence.</p>
+                <p class="hero-subtitle">Protecting your digital assets with next-generation AI-powered security
+                    infrastructure and real-time threat intelligence.</p>
                 <div class="hero-buttons">
-                  <a href="https://calendly.com/mainakinyanjui360/30min" class="primary-btn" target="_blank" rel="noopener noreferrer">
-  Book A Free Consultation
-</a>
+                    <a href="https://calendly.com/cybex-consultation/new-meeting" class="primary-btn" target="_blank"
+                        rel="noopener noreferrer">
+                        Book A Free Consultation
+                    </a>
 
                     <!-- <a href="#services" class="secondary-btn">Learn More</a> -->
                 </div>
             </div>
-            
+
             <div class="hero-image">
                 <!-- SVG Cyber Shield Image -->
                 <svg class="hero-svg" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
                     <!-- Main Shield -->
-                    <path d="M400 50 L600 150 L600 350 Q600 500 400 550 Q200 500 200 350 L200 150 Z" fill="none" stroke="url(#shieldGradient)" stroke-width="6" />
-                    
+                    <path d="M400 50 L600 150 L600 350 Q600 500 400 550 Q200 500 200 350 L200 150 Z" fill="none"
+                        stroke="url(#shieldGradient)" stroke-width="6" />
+
                     <!-- Concentric Shield Layers -->
-                    <path d="M400 100 L550 180 L550 340 Q550 460 400 500 Q250 460 250 340 L250 180 Z" fill="none" stroke="url(#innerShieldGradient)" stroke-width="3" opacity="0.7" />
-                    <path d="M400 150 L500 210 L500 330 Q500 420 400 450 Q300 420 300 330 L300 210 Z" fill="none" stroke="url(#innerShieldGradient)" stroke-width="2" opacity="0.5" />
-                    
+                    <path d="M400 100 L550 180 L550 340 Q550 460 400 500 Q250 460 250 340 L250 180 Z" fill="none"
+                        stroke="url(#innerShieldGradient)" stroke-width="3" opacity="0.7" />
+                    <path d="M400 150 L500 210 L500 330 Q500 420 400 450 Q300 420 300 330 L300 210 Z" fill="none"
+                        stroke="url(#innerShieldGradient)" stroke-width="2" opacity="0.5" />
+
                     <!-- Digital Circuit Lines -->
-                    <path d="M200 250 L380 250 L380 350 L500 350" fill="none" stroke="#00f7ff" stroke-width="2" stroke-dasharray="10,5" />
-                    <path d="M600 250 L420 250 L420 320 L300 320" fill="none" stroke="#0066ff" stroke-width="2" stroke-dasharray="10,5" />
-                    <path d="M400 50 L400 150 L300 200 L300 280" fill="none" stroke="#00f7ff" stroke-width="2" stroke-dasharray="10,5" />
-                    <path d="M400 550 L400 450 L500 400 L500 300" fill="none" stroke="#0066ff" stroke-width="2" stroke-dasharray="10,5" />
-                    
+                    <path d="M200 250 L380 250 L380 350 L500 350" fill="none" stroke="#00f7ff" stroke-width="2"
+                        stroke-dasharray="10,5" />
+                    <path d="M600 250 L420 250 L420 320 L300 320" fill="none" stroke="#0066ff" stroke-width="2"
+                        stroke-dasharray="10,5" />
+                    <path d="M400 50 L400 150 L300 200 L300 280" fill="none" stroke="#00f7ff" stroke-width="2"
+                        stroke-dasharray="10,5" />
+                    <path d="M400 550 L400 450 L500 400 L500 300" fill="none" stroke="#0066ff" stroke-width="2"
+                        stroke-dasharray="10,5" />
+
                     <!-- Connection Nodes -->
                     <circle cx="300" cy="280" r="8" fill="#9500ff" />
                     <circle cx="380" cy="250" r="8" fill="#00f7ff" />
@@ -606,43 +633,47 @@
                     <circle cx="500" cy="350" r="8" fill="#00f7ff" />
                     <circle cx="300" cy="320" r="8" fill="#0066ff" />
                     <circle cx="500" cy="300" r="8" fill="#9500ff" />
-                    
+
                     <!-- Lock Symbol -->
-                    <rect x="370" y="280" width="60" height="50" rx="5" fill="#050a18" stroke="url(#lockGradient)" stroke-width="3" />
-                    <rect x="380" y="255" width="40" height="30" rx="20" fill="none" stroke="url(#lockGradient)" stroke-width="3" />
-                    
+                    <rect x="370" y="280" width="60" height="50" rx="5" fill="#050a18" stroke="url(#lockGradient)"
+                        stroke-width="3" />
+                    <rect x="380" y="255" width="40" height="30" rx="20" fill="none" stroke="url(#lockGradient)"
+                        stroke-width="3" />
+
                     <!-- Shield Inner Glow -->
-                    <path d="M400 70 L580 160 L580 345 Q580 480 400 525 Q220 480 220 345 L220 160 Z" fill="url(#shieldFillGradient)" opacity="0.1" />
-                    
+                    <path d="M400 70 L580 160 L580 345 Q580 480 400 525 Q220 480 220 345 L220 160 Z"
+                        fill="url(#shieldFillGradient)" opacity="0.1" />
+
                     <!-- Gradients -->
                     <defs>
                         <linearGradient id="shieldGradient" x1="0%" y1="0%" x2="100%" y2="100%">
                             <stop offset="0%" stop-color="#00f7ff" />
                             <stop offset="100%" stop-color="#0066ff" />
                         </linearGradient>
-                        
+
                         <linearGradient id="innerShieldGradient" x1="0%" y1="100%" x2="100%" y2="0%">
                             <stop offset="0%" stop-color="#00f7ff" />
                             <stop offset="100%" stop-color="#9500ff" />
                         </linearGradient>
-                        
+
                         <linearGradient id="lockGradient" x1="0%" y1="0%" x2="100%" y2="100%">
                             <stop offset="0%" stop-color="#00f7ff" />
                             <stop offset="100%" stop-color="#0066ff" />
                         </linearGradient>
-                        
+
                         <radialGradient id="shieldFillGradient" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
                             <stop offset="0%" stop-color="#00f7ff" stop-opacity="0.3" />
                             <stop offset="100%" stop-color="#050a18" stop-opacity="0" />
                         </radialGradient>
                     </defs>
-                    
+
                     <!-- Animated Pulse Ring -->
-                    <circle cx="400" cy="300" r="120" fill="none" stroke="url(#pulseGradient)" stroke-width="2" opacity="0">
+                    <circle cx="400" cy="300" r="120" fill="none" stroke="url(#pulseGradient)" stroke-width="2"
+                        opacity="0">
                         <animate attributeName="r" values="120;200" dur="3s" repeatCount="indefinite" />
                         <animate attributeName="opacity" values="0.5;0" dur="3s" repeatCount="indefinite" />
                     </circle>
-                    
+
                     <defs>
                         <linearGradient id="pulseGradient" x1="0%" y1="0%" x2="100%" y2="100%">
                             <stop offset="0%" stop-color="#00f7ff" />
@@ -652,13 +683,13 @@
                 </svg>
             </div>
         </div>
-        
+
         <!-- Floating Tech Icons -->
         <div class="floating-icons" id="floating-icons"></div>
     </section>
 
 
-<!-- Services 🥳🥳-->
+    <!-- Services 🥳🥳-->
     <section class="services-section" id="services">
         <div class="services-container">
             <div class="services-header">
@@ -671,60 +702,65 @@
             background-clip: text;
             color: transparent;
             letter-spacing: 1.5px;">Our Solutions</h2>
-                <p class="section-subtitle">We offer comprehensive cybersecurity solutions powered by advanced AI and delivered by industry experts.</p>
+                <p class="section-subtitle">We offer comprehensive cybersecurity solutions powered by advanced AI and
+                    delivered by industry experts.</p>
             </div>
-            
+
             <div class="services-grid">
-            <!-- Service 1: Threat Detection & Analysis -->
-            <div class="service-card">
-                <div class="service-icon">
-                    <i class="fas fa-search-plus"></i>
-                </div>
-                <h3 class="service-title">Threat Detection & Analysis</h3>
-                <p class="service-description">AI-powered threat detection system that identifies and analyzes security risks in real-time, providing comprehensive protection against evolving cyber threats.</p>
-                <!-- <ul class="service-features">
+                <!-- Service 1: Threat Detection & Analysis -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                    <h3 class="service-title">Threat Detection & Analysis</h3>
+                    <p class="service-description">AI-powered threat detection system that identifies and analyzes
+                        security risks in real-time, providing comprehensive protection against evolving cyber threats.
+                    </p>
+                    <!-- <ul class="service-features">
                     <li>Real-time threat monitoring</li>
                     <li>Behavioral analysis algorithms</li>
                     <li>Zero-day threat detection</li>
                     <li>Automated incident response</li>
                 </ul> -->
-                <a href="threat-detection.html" class="service-btn">Learn More</a>
-            </div>
-            
-            <!-- Service 2: Incident Response & Recovery -->
-            <div class="service-card">
-                <div class="service-icon">
-                    <i class="fas fa-shield-virus"></i>
+                    <a href="threat-detection.html" class="service-btn">Learn More</a>
                 </div>
-                <h3 class="service-title">Incident Response & Recovery</h3>
-                <p class="service-description">Rapid incident response services with expert-led investigation, containment, and recovery procedures to minimize damage and restore operations.</p>
-                <!-- <ul class="service-features">
+
+                <!-- Service 2: Incident Response & Recovery -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-shield-virus"></i>
+                    </div>
+                    <h3 class="service-title">Incident Response & Recovery</h3>
+                    <p class="service-description">Rapid incident response services with expert-led investigation,
+                        containment, and recovery procedures to minimize damage and restore operations.</p>
+                    <!-- <ul class="service-features">
                     <li>24/7 emergency response</li>
                     <li>Forensic investigation</li>
                     <li>Damage assessment</li>
                     <li>System recovery planning</li>
                 </ul> -->
-                <a href="incident-response.html" class="service-btn">Learn More</a>
-            </div>
-            
-            <!-- Service 3: Security Consulting & Strategy -->
-            <div class="service-card">
-                <div class="service-icon">
-                    <i class="fas fa-user-shield"></i>
+                    <a href="incident-response.html" class="service-btn">Learn More</a>
                 </div>
-                <h3 class="service-title">Security Consulting & Strategy</h3>
-                <p class="service-description">Strategic security consulting to identify vulnerabilities, develop comprehensive security frameworks, and strengthen your overall security posture.</p>
-                <!-- <ul class="service-features">
+
+                <!-- Service 3: Security Consulting & Strategy -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-user-shield"></i>
+                    </div>
+                    <h3 class="service-title">Security Consulting & Strategy</h3>
+                    <p class="service-description">Strategic security consulting to identify vulnerabilities, develop
+                        comprehensive security frameworks, and strengthen your overall security posture.</p>
+                    <!-- <ul class="service-features">
                     <li>Security policy development</li>
                     <li>Risk management strategies</li>
                     <li>Architecture reviews</li>
                     <li>Security roadmap planning</li>
                 </ul> -->
-                <a href="security-consulting.html" class="service-btn">Learn More</a>
-            </div>
-            
-            <!-- Service 4: IT Security Governance & Compliance -->
-            <!-- <div class="service-card">
+                    <a href="security-consulting.html" class="service-btn">Learn More</a>
+                </div>
+
+                <!-- Service 4: IT Security Governance & Compliance -->
+                <!-- <div class="service-card">
                 <div class="service-icon">
                     <i class="fas fa-balance-scale"></i>
                 </div>
@@ -739,61 +775,69 @@
                 <!-- <a href="security-governance.html" class="service-btn">Learn More</a>
             </div>
              -->
-            <!-- Service 5: Managed Security Services -->
-            <div class="service-card">
-                <div class="service-icon">
-                    <i class="fas fa-cogs"></i>
-                </div>
-                <h3 class="service-title">Managed Security Services</h3>
-                <p class="service-description">Complete managed security operations including 24/7 monitoring, threat hunting, and proactive security management for your infrastructure.</p>
-                <!-- <ul class="service-features">
+                <!-- Service 5: Managed Security Services -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h3 class="service-title">Managed Security Services</h3>
+                    <p class="service-description">Complete managed security operations including 24/7 monitoring,
+                        threat hunting, and proactive security management for your infrastructure.</p>
+                    <!-- <ul class="service-features">
                     <li>24/7 SOC monitoring</li>
                     <li>Threat hunting services</li>
                     <li>Security device management</li>
                     <li>Proactive threat intelligence</li>
                 </ul> -->
-                <a href="managed-security.html" class="service-btn">Learn More</a>
-            </div>
-            
-            <!-- Service 6: Security Audits & Assessments -->
-            <div class="service-card">
-                <div class="service-icon">
-                    <i class="fas fa-clipboard-check"></i>
+                    <a href="managed-security.html" class="service-btn">Learn More</a>
                 </div>
-                <h3 class="service-title">Security Audits & Assessments</h3>
-                <p class="service-description">Thorough security assessments including vulnerability testing, penetration testing, and comprehensive security evaluations to identify weaknesses.</p>
-                <!-- <ul class="service-features">
+
+                <!-- Service 6: Security Audits & Assessments -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-clipboard-check"></i>
+                    </div>
+                    <h3 class="service-title">Security Audits & Assessments</h3>
+                    <p class="service-description">Thorough security assessments including vulnerability testing,
+                        penetration testing, and comprehensive security evaluations to identify weaknesses.</p>
+                    <!-- <ul class="service-features">
                     <li>Vulnerability assessments</li>
                     <li>Penetration testing</li>
                     <li>Security maturity audits</li>
                     <li>Network security reviews</li>
                 </ul> -->
-                <a href="security-audit.html" class="service-btn">Learn More</a>
+                    <a href="security-audit.html" class="service-btn">Learn More</a>
+                </div>
             </div>
-        </div>
             <!-- <a href="services.html" class="more-services-btn">
                 <span>View All Services</span>
                 <i class="fas fa-arrow-right" style="margin-left: 0.5rem;"></i>
             </a> -->
         </div>
-        
+
         <div class="floating-elements">
             <div class="floating-element" style="left: 15%; animation-delay: 1s;"><i class="fas fa-code"></i></div>
             <div class="floating-element" style="left: 25%; animation-delay: 3s;"><i class="fas fa-server"></i></div>
             <div class="floating-element" style="left: 35%; animation-delay: 5s;"><i class="fas fa-database"></i></div>
             <div class="floating-element" style="left: 45%; animation-delay: 7s;"><i class="fas fa-wifi"></i></div>
-            </div>
-           </section>
-           <!-- About Overview Section 🥳🥳-->
+        </div>
+    </section>
+    <!-- About Overview Section 🥳🥳-->
 
-     <!--🥳🥳 Company Story🥳🥳 -->
+    <!--🥳🥳 Company Story🥳🥳 -->
     <section class="company-story">
         <div class="story-grid">
             <div class="story-content">
                 <h2>About Us</h2>
-                <p>Founded in 2020 by a team of cybersecurity veterans and AI pioneers, Cybex emerged from the critical need to address sophisticated cyber threats using cutting-edge technology.</p>
-                <p>Starting as a small consultancy firm, we've grown into a global leader in cybersecurity solutions, protecting over 5,000 organizations across 20+ countries with our advanced AI-powered defense systems.</p>
-                <p>Our commitment to innovation and excellence has made us the trusted partner for Fortune 500 companies, government agencies, and organizations of all sizes seeking robust cybersecurity protection.</p>
+                <p>Cybex was founded in 2020 by a team of passionate students and professionals who recognized a growing
+                    gap—small businesses were being overlooked in the fight against cyber threats.</p>
+
+                <p>We’re a bold, mission-driven startup focused on empowering SMEs with smart, affordable, and effective
+                    cybersecurity solutions designed for real-world challenges.</p>
+
+                <p>As we grow, our commitment remains clear: to give you confidence and peace of mind by making
+                    cybersecurity simple, accessible, and reliable.</p>
+
             </div>
             <div class="story-visual">
                 <div class="story-card">
@@ -819,45 +863,47 @@
             </div>
         </div>
         <div class="about-cta" style="margin-top: 1rem !important; ">
-                    <a href="about.html" class="learn-more-btna">
-                        <span>Learn More</span>
-                        <i class="fas fa-arrow-right"></i>
-                    </a>
-                </div>
+            <a href="about.html" class="learn-more-btna">
+                <span>Learn More</span>
+                <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
     </section>
-    
-<!-- cta 🥳🥳-->
-  <section class="cta-section">
+
+    <!-- cta 🥳🥳-->
+    <section class="cta-section">
         <div class="tech-grid"></div>
         <div class="floating-elements">
             <div class="floating-shape shape-1"></div>
             <div class="floating-shape shape-2"></div>
             <div class="floating-shape shape-3"></div>
         </div>
-        
+
         <div class="cta-container">
             <div class="cta-content">
                 <div class="cta-icon">
                     <i class="fas fa-shield-alt"></i>
                 </div>
-                
+
                 <h2 class="cta-title">Secure Your Digital Future</h2>
                 <h3 class="cta-subtitle">Don't Wait for a Breach to Happen</h3>
-                
+
                 <p class="cta-description">
-                    Every second your systems remain unprotected, cybercriminals are plotting their next attack. Our AI-powered cybersecurity solutions provide real-time threat detection and instant response to keep your business safe.
+                    Every second your systems remain unprotected, cybercriminals are plotting their next attack. Our
+                    AI-powered cybersecurity solutions provide real-time threat detection and instant response to keep
+                    your business safe.
                 </p>
-                
+
                 <div class="cta-urgency">
                     <i class="fas fa-exclamation-triangle"></i>
                     Cyber attacks happen every 39 seconds
                 </div>
-                
+
                 <a href="tel:+254717378758" class="cta-button">
                     <i class="fas fa-phone cta-phone-icon"></i>
                     Contact Us Now
                 </a>
-                
+
                 <div class="secondary-info">
                     <div class="info-item">
                         <i class="fas fa-clock info-icon"></i>
@@ -876,21 +922,23 @@
         </div>
     </section>
 
-<!-- 🥳🥳🥳 -->
-                   
-<!-- Footer -->
+    <!-- 🥳🥳🥳 -->
+
+    <!-- Footer -->
     <footer class="footer">
         <div class="footer-container">
             <div class="footer-grid">
                 <div class="footer-section">
                     <h3>CYBEX</h3>
-                    <p style="font-family: 'Orbitron', sans-serif;">Advanced cybersecurity solutions powered by AI, protecting organizations worldwide with cutting-edge threat detection and response capabilities.</p>
+                    <p style="font-family: 'Orbitron', sans-serif;">Advanced cybersecurity solutions powered by AI,
+                        protecting organizations worldwide with cutting-edge threat detection and response capabilities.
+                    </p>
                 </div>
                 <div class="footer-section">
                     <h3>Solutions</h3>
                     <a href="threat-detection.html">Threat Detection</a>
                     <a href="incident-response.html">Incident Response</a>
-                    <a href="security-consulting.html">Security Consulting</a>    
+                    <a href="security-consulting.html">Security Consulting</a>
                     <a href="security-audit.html">Security Audit</a>
                 </div>
                 <div class="footer-section">
@@ -904,8 +952,8 @@
                     <p>info@cybex.com</p>
                     <p> +254 (717) 378-758</p>
                     <p> 123 Tech Solutions<br>
-Woodvale Grove, Westlands<br>
-Nairobi, Kenya</p>
+                        Woodvale Grove, Westlands<br>
+                        Nairobi, Kenya</p>
                 </div>
                 <div class="footer-section">
                     <h3>Follow Us</h3>
@@ -986,22 +1034,20 @@ Nairobi, Kenya</p>
             </div>
         </div>
     </footer>
-</footer>
+    </footer>
     <!-- 🥳🥳 Script 🥳 -->
-   
-     <script src="airs.js"></script>
-     <script>
+
+    <script src="airs.js"></script>
+    <script>
         // Highlight the active nav link based on current page
-  const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-  document.querySelectorAll('.nav-links a, .mobile-nav-links a').forEach(link => {
-    link.classList.remove('active');
-    if (link.getAttribute('href') === currentPage) {
-      link.classList.add('active');
-    }
-  });
-     </script>
-       </body>
-       </html>
+        const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+        document.querySelectorAll('.nav-links a, .mobile-nav-links a').forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === currentPage) {
+                link.classList.add('active');
+            }
+        });
+    </script>
+</body>
 
-
-
+</html>
