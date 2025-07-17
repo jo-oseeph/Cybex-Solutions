@@ -136,7 +136,7 @@
             border: 1px solid rgba(0, 247, 255, 0.2);
             border-radius: 10px;
             padding: 1rem 0;
-            width: 400px;
+            width: 350px;
             opacity: 0;
             visibility: hidden;
             transform: translateY(-10px);
@@ -297,6 +297,8 @@
             padding: 0;
             margin: 0;
             background: rgba(0, 247, 255, 0.03);
+            width: 320px;
+            height: 100vh;
         }
         
         .mobile-dropdown.active .mobile-dropdown-menu {
